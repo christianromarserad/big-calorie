@@ -1,7 +1,11 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { selectDayActionCreator } from '../../store/MealPlanReducer';
+import MealPlanItem from './MealPlanItem';
+import {
+    selectDayActionCreator,
+    deleteMealActionCreator
+} from '../../store/MealPlanReducer';
 
 function MealPlanPage(props) {
     return (
@@ -16,10 +20,10 @@ function MealPlanPage(props) {
                 })
             }
 
-            <div>
+            <div class="flex">
                 {
-                    props.dayMealPlans[props.selectedDay].map(({ mealName, food }) => {
-                        return <div>{mealName} <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded m-2">EDIT</button></div>
+                    props.dayMealPlans[props.selectedDay].map(({ mealName, foods }, index) => {
+                        return <MealPlanItem mealName={mealName} foods={foods} index={index} selectedDay={props.selectedDay} deleteMeal={props.deleteMealActionCreator.bind(this, props.selectedDay, index)} />
                     })
                 }
             </div>
@@ -37,7 +41,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        selectDayActionCreator: selectDayActionCreator
+        selectDayActionCreator: selectDayActionCreator,
+        deleteMealActionCreator: deleteMealActionCreator
     }, dispatch);
 }
 
