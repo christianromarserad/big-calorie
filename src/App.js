@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './styles/main.css';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { incrementCountActionCreator } from './store/CounterReducer';
 
-function App() {
+function App(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <p>{props.count}</p>
+      <button onClick={props.incrementCountActionCreator}>Click</button>
     </div>
   );
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    count: state.counter.count
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    incrementCountActionCreator: incrementCountActionCreator
+  }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
