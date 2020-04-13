@@ -2,12 +2,12 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { incrementCountActionCreator } from './store/CounterReducer';
+import MealPlanPage from './components/MealPlan/MealPlanPage';
 
 function App(props) {
   return (
     <div>
-      <p>{props.count}</p>
-      <button onClick={props.incrementCountActionCreator}>Click</button>
+      <MealPlanPage />
     </div>
   );
 }
