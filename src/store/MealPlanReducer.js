@@ -402,7 +402,8 @@ export function addFoodActionCreator(day, index, foodName) {
                 calorie: resultFood.nf_calories,
                 carb: resultFood.nf_total_carbohydrate,
                 protein: resultFood.nf_protein,
-                fat: resultFood.nf_total_fat
+                fat: resultFood.nf_total_fat,
+                photo: resultFood.photo.thumb
             }
 
             dispatch({
