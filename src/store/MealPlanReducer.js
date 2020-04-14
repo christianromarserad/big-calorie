@@ -443,15 +443,10 @@ export function selectDayActionCreator(day) {
 }
 
 export function deleteMealActionCreator(day, index) {
-    return (dispatch, getState) => {
-        let mealPlan = getState().mealPlan
-        mealPlan.days[day].splice(index, 1);
-        dispatch({
-            type: deleteMealType,
-            payload: {
-                ...mealPlan
-            }
-        });
+    return {
+        type: deleteMealType,
+        day: day,
+        index: index
     }
 }
 
@@ -467,9 +462,16 @@ export const reducer = (state = initialState, action) => {
         }
     }
     else if (action.type === deleteMealType) {
+        let newMeals = state.days[action.day].map((meal) => (meal));
+        newMeals.splice(action.index, 1);
         return {
             ...state,
-            ...action.payload
+            days: {
+                ...state.days,
+                [action.day]: [
+                    ...newMeals
+                ]
+            }
         }
     }
     else if (action.type === updateMealName) {
