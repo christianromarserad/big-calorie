@@ -4,9 +4,11 @@ import './styles/main.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
-import configureStore from './store/ConfigureStore';
+import configureStore from './configuration/ConfigureStore';
+import configureAxios from './configuration/ConfigureAxios';
 
-const store = configureStore();
+const store = configureStore(); //Set up redux store
+configureAxios();               //Set up axios with api key
 
 ReactDOM.render(
   <React.StrictMode>
