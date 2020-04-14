@@ -10,15 +10,17 @@ import {
 function MealPlanPage(props) {
     return (
         <div>
-            {
-                props.dayNames.map((day) => {
-                    return (
-                        day === props.selectedDay ?
-                            <button class="bg-blue-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-3" onClick={props.selectDayActionCreator.bind(this, day)}> {day}</button> :
-                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-3" onClick={props.selectDayActionCreator.bind(this, day)}> {day}</button>
-                    )
-                })
-            }
+            <div class="flex justify-center">
+                {
+                    props.dayNames.map((day) => {
+                        return (
+                            day === props.selectedDay ?
+                                <button class="bg-blue-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-3" onClick={props.selectDayActionCreator.bind(this, day)}> {day}</button> :
+                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-3" onClick={props.selectDayActionCreator.bind(this, day)}> {day}</button>
+                        )
+                    })
+                }
+            </div>
 
             <div class="flex">
                 {
