@@ -56,12 +56,12 @@ function MealPlanItem(props) {
                 <table class="table-auto overflow-hidden w-full">
                     <tbody>
                         {
-                            props.foods.map(({ foodName, calorie, carb, protien, fat }) => {
+                            props.foods.map(({ foodName, calorie, carb, protein, fat }) => {
                                 return (
                                     <tr >
                                         <td class="px-4 py-2">{foodName}</td>
                                         <td class="px-4 py-2 text-xs">carb: {carb}</td>
-                                        <td class="px-4 py-2 text-xs">protien: {protien}</td>
+                                        <td class="px-4 py-2 text-xs">protein: {protein}</td>
                                         <td class="px-4 py-2 text-xs">fat: {fat}</td>
                                         <td class="px-4 py-2 text-xs">calorie: {calorie}</td>
                                     </tr>
