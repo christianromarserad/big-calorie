@@ -18,10 +18,10 @@ function MealPlanItem(props) {
         return total;
     }
 
-    const getTotalProtien = () => {
+    const getTotalProtein = () => {
         let total = 0;
         for (let i = 0; i < props.foods.length; i++) {
-            total += props.foods[i].protien;
+            total += props.foods[i].protein;
         }
         return total;
     }
@@ -79,7 +79,7 @@ function MealPlanItem(props) {
                     Carb: {getTotalCarbs()}
                 </p>
                 <p class="flex-1 font-bold text-gray-700 text-base">
-                    Protien: {getTotalProtien()}
+                    protein: {getTotalProtein()}
                 </p>
                 <p class="flex-1 font-bold text-gray-700 text-base">
                     Fat: {getTotalFat()}
