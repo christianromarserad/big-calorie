@@ -52,7 +52,7 @@ function MealPlanItem(props) {
                     Carb: {getTotalCarbs(props.foods.map(food => (food.carb)))}
                 </p>
                 <p class="flex-1 font-bold text-gray-700 text-base">
-                    protein: {getTotalProtein(props.foods.map(food => (food.protein)))}
+                    Protein: {getTotalProtein(props.foods.map(food => (food.protein)))}
                 </p>
                 <p class="flex-1 font-bold text-gray-700 text-base">
                     Fat: {getTotalFat(props.foods.map(food => (food.fat)))}
