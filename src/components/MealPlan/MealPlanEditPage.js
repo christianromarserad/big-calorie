@@ -44,8 +44,6 @@ function MealPlanEditPage(props) {
         });
     }
 
-
-
     return (
         <div class="w-full p-10 h-full">
             <div class="bg-white p-10 rounded-lg shadow-lg h-full">
