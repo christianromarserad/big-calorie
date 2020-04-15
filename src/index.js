@@ -9,6 +9,7 @@ import configureAxios from './configuration/ConfigureAxios';
 
 const store = configureStore(); //Set up redux store
 configureAxios();               //Set up axios with api key
+window.store = store;           //For debugging purposes
 
 ReactDOM.render(
   <React.StrictMode>
