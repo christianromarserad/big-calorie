@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import MealPlanItem from './MealPlanItem';
@@ -25,7 +25,12 @@ function MealPlanPage(props) {
             <div class="flex">
                 {
                     props.dayMealPlans[props.selectedDay].map(({ mealName, foods }, index) => {
-                        return <MealPlanItem mealName={mealName} foods={foods} index={index} selectedDay={props.selectedDay} deleteMeal={props.deleteMealActionCreator.bind(this, props.selectedDay, index)} />
+                        return <MealPlanItem
+                            mealName={mealName}
+                            foods={foods}
+                            index={index}
+                            selectedDay={props.selectedDay}
+                            deleteMealActionCreator={props.deleteMealActionCreator} />
                     })
                 }
             </div>
