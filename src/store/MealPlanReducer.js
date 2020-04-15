@@ -4,6 +4,7 @@ const selectDayType = "SELECT_DAY_TYPE";
 const deleteMealType = "DELETE_MEAL_TYPE";
 const updateMealName = "UPDATE_MEAL_NAME";
 const addFoodType = "ADD_FOOD_TYPE";
+const deleteFoodType = "DELETE_FOOD_TYPE";
 
 const initialState = {
     selectedDay: 'monday',
@@ -13,25 +14,49 @@ const initialState = {
                 mealName: 'monday1',
                 foods: [
                     {
-                        foodName: 'Banana',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
                     {
-                        foodName: 'Orange',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
                     {
-                        foodName: 'Apple',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
+                    },
+                    {
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
+                    },
+                    {
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     }
                 ]
             },
@@ -39,25 +64,31 @@ const initialState = {
                 mealName: 'monday2',
                 foods: [
                     {
-                        foodName: 'Banana',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
                     {
-                        foodName: 'Orange',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
                     {
-                        foodName: 'Apple',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     }
                 ]
             }
@@ -67,25 +98,31 @@ const initialState = {
                 mealName: 'tuesday1',
                 foods: [
                     {
-                        foodName: 'Banana',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
                     {
-                        foodName: 'Orange',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
                     {
-                        foodName: 'Apple',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     }
                 ]
             },
@@ -93,25 +130,31 @@ const initialState = {
                 mealName: 'tuesday2',
                 foods: [
                     {
-                        foodName: 'Banana',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
                     {
-                        foodName: 'Orange',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
                     {
-                        foodName: 'Apple',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     }
                 ]
             }
@@ -121,25 +164,31 @@ const initialState = {
                 mealName: 'wednesday1',
                 foods: [
                     {
-                        foodName: 'Banana',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
                     {
-                        foodName: 'Orange',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
                     {
-                        foodName: 'Apple',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     }
                 ]
             },
@@ -147,25 +196,31 @@ const initialState = {
                 mealName: 'wednesday2',
                 foods: [
                     {
-                        foodName: 'Banana',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
                     {
-                        foodName: 'Orange',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
                     {
-                        foodName: 'Apple',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     }
                 ]
             }
@@ -175,25 +230,31 @@ const initialState = {
                 mealName: 'thursday1',
                 foods: [
                     {
-                        foodName: 'Banana',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
                     {
-                        foodName: 'Orange',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
                     {
-                        foodName: 'Apple',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     }
                 ]
             },
@@ -201,25 +262,31 @@ const initialState = {
                 mealName: 'thursday2',
                 foods: [
                     {
-                        foodName: 'Banana',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
                     {
-                        foodName: 'Orange',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
                     {
-                        foodName: 'Apple',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     }
                 ]
             }
@@ -229,25 +296,31 @@ const initialState = {
                 mealName: 'friday1',
                 foods: [
                     {
-                        foodName: 'Banana',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
                     {
-                        foodName: 'Orange',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
                     {
-                        foodName: 'Apple',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     }
                 ]
             },
@@ -255,25 +328,31 @@ const initialState = {
                 mealName: 'friday2',
                 foods: [
                     {
-                        foodName: 'Banana',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
                     {
-                        foodName: 'Orange',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
                     {
-                        foodName: 'Apple',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     }
                 ]
             }
@@ -283,25 +362,31 @@ const initialState = {
                 mealName: 'saturday1',
                 foods: [
                     {
-                        foodName: 'Banana',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
                     {
-                        foodName: 'Orange',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
                     {
-                        foodName: 'Apple',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     }
                 ]
             },
@@ -309,25 +394,31 @@ const initialState = {
                 mealName: 'saturday2',
                 foods: [
                     {
-                        foodName: 'Banana',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
                     {
-                        foodName: 'Orange',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
                     {
-                        foodName: 'Apple',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     }
                 ]
             }
@@ -337,25 +428,31 @@ const initialState = {
                 mealName: 'sunday1',
                 foods: [
                     {
-                        foodName: 'Banana',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
                     {
-                        foodName: 'Orange',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
                     {
-                        foodName: 'Apple',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     }
                 ]
             },
@@ -363,25 +460,31 @@ const initialState = {
                 mealName: 'sunday2',
                 foods: [
                     {
-                        foodName: 'Banana',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
                     {
-                        foodName: 'Orange',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
                     {
-                        foodName: 'Apple',
-                        calorie: 200,
-                        carb: 100,
-                        protein: 20,
-                        fat: 40
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     }
                 ]
             }
@@ -420,7 +523,6 @@ export function addFoodActionCreator(day, index, foodName) {
 
 export function updateMealNameActionCreator(day, index, event) {
     return (dispatch, getState) => {
-        let mealPlan = getState().mealPlan;
         let mealName = event.target.value
 
         dispatch({
@@ -448,6 +550,16 @@ export function deleteMealActionCreator(day, index) {
         type: deleteMealType,
         day: day,
         index: index
+    }
+}
+
+export function deleteFoodActionCreator(day, mealIndex, foodIndex) {
+    console.log("day: " + day + " mealIndex: " + mealIndex + " foodINdex: " + foodIndex);
+    return {
+        type: deleteFoodType,
+        day: day,
+        mealIndex: mealIndex,
+        foodIndex: foodIndex
     }
 }
 
@@ -524,7 +636,20 @@ export const reducer = (state = initialState, action) => {
             }
         };
     }
-
+    else if (action.type === deleteFoodType) {
+        console.log(action.day);
+        let newMeals = state.days[action.day].map((meal) => (meal));
+        newMeals[action.mealIndex].foods.splice(action.foodIndex, 1);
+        return {
+            ...state,
+            days: {
+                ...state.days,
+                [action.day]: [
+                    ...newMeals
+                ]
+            }
+        };
+    }
 
     return state;
 }

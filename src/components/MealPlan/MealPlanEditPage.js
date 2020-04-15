@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
+import FoodEditTable from './FoodEditTable';
 import {
     getTotalCalories,
     getTotalCarbs,
@@ -12,7 +13,8 @@ import {
 } from '../../utils/Nutrients';
 import {
     updateMealNameActionCreator,
-    addFoodActionCreator
+    addFoodActionCreator,
+    deleteFoodActionCreator
 } from '../../store/MealPlanReducer';
 
 function MealPlanEditPage(props) {
@@ -111,41 +113,11 @@ function MealPlanEditPage(props) {
                         }
                     </div>
 
-                    <div class="flex-1 flex flex-col overflow-hidden">
-                        <div class="w-full mt-6">
-                            <div class="flex text-center font-medium text-gray-600 bg-teal-300 rounded-md">
-                                <div class="px-4 py-2 w-7/12">Photo</div>
-                                <div class="px-4 py-2 w-7/12">Name</div>
-                                <div class="px-4 py-2 w-7/12">Carb</div>
-                                <div class="px-4 py-2 w-7/12">Protein</div>
-                                <div class="px-4 py-2 w-7/12">Fat</div>
-                                <div class="px-4 py-2 w-7/12">Calorie</div>
-                                <div class="px-4 py-2 w-7/12">Delete</div>
-                            </div>
-                        </div>
-
-                        <div class="flex-1 overflow-y-scroll">
-                            {
-                                props.foods.map(({ foodName, calorie, carb, protein, fat, photo }) => {
-                                    return (
-                                        <div class="bg-teal-100 text-center flex mt-5 mb-5 rounded-lg font-bold text-gray-700 border border-gray-400 items-center">
-                                            <div class="px-4 py-2 w-7/12"><img class="object-contain h-10 w-20 object-right" src={photo} /></div>
-                                            <div class="px-4 py-2 w-7/12">{foodName}</div>
-                                            <div class="px-4 py-2 w-7/12">{carb}</div>
-                                            <div class="px-4 py-2 w-7/12">{protein}</div>
-                                            <div class="px-4 py-2 w-7/12">{fat}</div>
-                                            <div class="px-4 py-2 w-7/12">{calorie}</div>
-                                            <div class="px-4 py-2 w-7/12">
-                                                <button class="text-gray-600 hover:text-black py-2 px-2 rounded-lg">
-                                                    <svg class="h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z" /></svg>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    );
-                                })
-                            }
-                        </div>
-                    </div>
+                    <FoodEditTable
+                        day={day}
+                        mealIndex={index}
+                        foods={props.foods}
+                        deleteFoodActionCreator={props.deleteFoodActionCreator} />
                 </div >
             </div>
         </div>
@@ -163,7 +135,8 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
         updateMealNameActionCreator: updateMealNameActionCreator,
-        addFoodActionCreator: addFoodActionCreator
+        addFoodActionCreator: addFoodActionCreator,
+        deleteFoodActionCreator: deleteFoodActionCreator
     }, dispatch);
 }
 
