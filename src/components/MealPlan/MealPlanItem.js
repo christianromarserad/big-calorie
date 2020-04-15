@@ -9,7 +9,7 @@ import {
 
 function MealPlanItem(props) {
     return (
-        <div class="bg-white rounded-lg shadow-lg w-auto m-5 h-84 flex-1 flex flex-col">
+        <div class="bg-white rounded-lg shadow-lg w-auto m-5 h-64 flex-1 flex flex-col">
             <div class="flex items-center border-b p-3 shadow-sm">
                 <p class="flex-1 font-bold text-gray-700 text-lg">
                     {props.mealName}
@@ -26,7 +26,7 @@ function MealPlanItem(props) {
                 </div>
             </div>
             <div class="overflow-y-scroll m-2">
-                <table class="table-auto overflow-hidden w-full">
+                <table class="table-auto w-full">
                     <tbody>
                         {
                             props.foods.map(({ foodName, calorie, carb, protein, fat }) => {
