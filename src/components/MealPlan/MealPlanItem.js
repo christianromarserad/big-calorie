@@ -7,7 +7,7 @@ function MealPlanItem(props) {
         for (let i = 0; i < props.foods.length; i++) {
             total += props.foods[i].calorie;
         }
-        return total;
+        return Math.round(total);
     }
 
     const getTotalCarbs = () => {
@@ -15,7 +15,7 @@ function MealPlanItem(props) {
         for (let i = 0; i < props.foods.length; i++) {
             total += props.foods[i].carb;
         }
-        return total;
+        return Math.round(total);
     }
 
     const getTotalProtein = () => {
@@ -23,7 +23,7 @@ function MealPlanItem(props) {
         for (let i = 0; i < props.foods.length; i++) {
             total += props.foods[i].protein;
         }
-        return total;
+        return Math.round(total);
     }
 
     const getTotalFat = () => {
@@ -31,7 +31,7 @@ function MealPlanItem(props) {
         for (let i = 0; i < props.foods.length; i++) {
             total += props.foods[i].fat;
         }
-        return total;
+        return Math.round(total);
     }
 
 
