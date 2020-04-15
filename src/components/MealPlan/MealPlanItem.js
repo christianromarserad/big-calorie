@@ -1,40 +1,13 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import {
+    getTotalCalories,
+    getTotalCarbs,
+    getTotalFat,
+    getTotalProtein
+} from '../../utils/Nutrients';
 
 function MealPlanItem(props) {
-    const getTotalCalories = () => {
-        let total = 0;
-        for (let i = 0; i < props.foods.length; i++) {
-            total += props.foods[i].calorie;
-        }
-        return Math.round(total);
-    }
-
-    const getTotalCarbs = () => {
-        let total = 0;
-        for (let i = 0; i < props.foods.length; i++) {
-            total += props.foods[i].carb;
-        }
-        return Math.round(total);
-    }
-
-    const getTotalProtein = () => {
-        let total = 0;
-        for (let i = 0; i < props.foods.length; i++) {
-            total += props.foods[i].protein;
-        }
-        return Math.round(total);
-    }
-
-    const getTotalFat = () => {
-        let total = 0;
-        for (let i = 0; i < props.foods.length; i++) {
-            total += props.foods[i].fat;
-        }
-        return Math.round(total);
-    }
-
-
     return (
         <div class="bg-white rounded-lg shadow-lg w-auto m-5 h-84 flex-1 flex flex-col">
             <div class="flex items-center border-b p-3 shadow-sm">
@@ -73,16 +46,16 @@ function MealPlanItem(props) {
             </div>
             <div class="border-t flex items-center border-b p-3">
                 <p class="flex-1 font-bold text-gray-700 text-base">
-                    Calories: {getTotalCalories()}
+                    Calories: {getTotalCalories(props.foods.map(food => (food.calorie)))}
                 </p>
                 <p class="flex-1 font-bold text-gray-700 text-base">
-                    Carb: {getTotalCarbs()}
+                    Carb: {getTotalCarbs(props.foods.map(food => (food.carb)))}
                 </p>
                 <p class="flex-1 font-bold text-gray-700 text-base">
-                    protein: {getTotalProtein()}
+                    protein: {getTotalProtein(props.foods.map(food => (food.protein)))}
                 </p>
                 <p class="flex-1 font-bold text-gray-700 text-base">
-                    Fat: {getTotalFat()}
+                    Fat: {getTotalFat(props.foods.map(food => (food.fat)))}
                 </p>
             </div>
         </div>
