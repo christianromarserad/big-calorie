@@ -29,7 +29,7 @@ function MealPlanItem({ mealName, foods, index, selectedDay, deleteMealActionCre
                 itemName={deleteItemName}
                 deleteItem={deleteMealActionCreator.bind(this, selectedDay, index)} />
 
-            <div class="bg-white rounded-lg shadow-lg w-auto m-5 h-64 flex-1 flex flex-col">
+            <div class="bg-white rounded-lg shadow-lg w-full h-full flex-1 flex flex-col">
                 <div class="flex items-center border-b p-3 shadow-sm">
                     <p class="flex-1 font-bold text-gray-700 text-lg">
                         {mealName}
@@ -45,7 +45,7 @@ function MealPlanItem({ mealName, foods, index, selectedDay, deleteMealActionCre
                         </button>
                     </div>
                 </div>
-                <div class="flex-1 overflow-y-scroll m-2">
+                <div class="flex-1 overflow-auto m-2">
                     <table class="table-auto w-full">
                         <tbody>
                             {

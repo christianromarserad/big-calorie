@@ -4,6 +4,7 @@ const selectDayType = "SELECT_DAY_TYPE";
 const deleteMealType = "DELETE_MEAL_TYPE";
 const updateMealName = "UPDATE_MEAL_NAME";
 const addFoodType = "ADD_FOOD_TYPE";
+const addMealType = "ADD_MEAL_TYPE";
 const deleteFoodType = "DELETE_FOOD_TYPE";
 
 const initialState = {
@@ -31,6 +32,38 @@ const initialState = {
                         fat: 0.1,
                         photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
                     },
+                    {
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
+                    },
+                    {
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
+                    },
+                    {
+                        foodName: "pineapple",
+                        serving: "0.5 cup, chunks",
+                        calorie: 41.25,
+                        carb: 10.82,
+                        protein: 0.45,
+                        fat: 0.1,
+                        photo: "https://d2xdmhkmkbyw75.cloudfront.net/195_thumb.jpg"
+                    }
+                ]
+            },
+            {
+                mealName: 'monday2',
+                foods: [
                     {
                         foodName: "pineapple",
                         serving: "0.5 cup, chunks",
@@ -521,6 +554,13 @@ export function addFoodActionCreator(day, index, foodName) {
     };
 }
 
+export function addMealActionCreator(day) {
+    return {
+        type: addMealType,
+        day: day
+    }
+}
+
 export function updateMealNameActionCreator(day, index, event) {
     return (dispatch, getState) => {
         let mealName = event.target.value
@@ -637,9 +677,24 @@ export const reducer = (state = initialState, action) => {
         };
     }
     else if (action.type === deleteFoodType) {
-        console.log(action.day);
         let newMeals = state.days[action.day].map((meal) => (meal));
         newMeals[action.mealIndex].foods.splice(action.foodIndex, 1);
+        return {
+            ...state,
+            days: {
+                ...state.days,
+                [action.day]: [
+                    ...newMeals
+                ]
+            }
+        };
+    }
+    else if (action.type === addMealType) {
+        let newMeals = state.days[action.day].map((meal) => (meal));
+        newMeals.push({
+            mealName: 'New Meal',
+            foods: []
+        });
         return {
             ...state,
             days: {

@@ -38,7 +38,7 @@ const FoodEditTable = ({ day, mealIndex, foods, deleteFoodActionCreator }) => {
                     </div>
                 </div>
 
-                <div class="flex-1 overflow-y-scroll">
+                <div class="flex-1 overflow-auto">
                     {
                         foods.map(({ foodName, calorie, carb, protein, fat, photo }, foodIndex) => {
                             return (
