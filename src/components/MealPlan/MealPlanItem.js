@@ -25,7 +25,7 @@ function MealPlanItem(props) {
                     </button>
                 </div>
             </div>
-            <div class="overflow-y-scroll m-2">
+            <div class="flex-1 overflow-y-scroll m-2">
                 <table class="table-auto w-full">
                     <tbody>
                         {
