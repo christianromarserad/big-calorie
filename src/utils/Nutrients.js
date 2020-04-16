@@ -13,4 +13,6 @@ export const getBMR = (age, height, weight, gender) => {
             return 655.1 + (9.563 * weight) + (1.85 * height) - (4.676 * age);
         }
     }
+
+    return null;
 }
