@@ -6,12 +6,7 @@ import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 import FoodEditTable from './FoodEditTable';
 import FoodAddSearch from './FoodAddSearch';
-import {
-    getTotalCalories,
-    getTotalCarbs,
-    getTotalFat,
-    getTotalProtein
-} from '../../utils/Nutrients';
+import { getTotal } from '../../utils/Nutrients';
 import {
     updateMealNameActionCreator,
     addFoodActionCreator,
@@ -46,16 +41,16 @@ function MealPlanEditPage(props) {
 
                         <div class="flex-1 flex  ml-2 text-center">
                             <p class="flex-1 font-bold text-gray-700 text-base">
-                                Calories: {getTotalCalories(props.foods.map(food => (food.calorie)))}
+                                Calories: {getTotal(props.foods.map(food => (food.calorie)))}
                             </p>
                             <p class="flex-1 font-bold text-gray-700 text-base">
-                                Carb: {getTotalCarbs(props.foods.map(food => (food.carb)))}
+                                Carb: {getTotal(props.foods.map(food => (food.carb)))}
                             </p>
                             <p class="flex-1 font-bold text-gray-700 text-base">
-                                Protein: {getTotalProtein(props.foods.map(food => (food.protein)))}
+                                Protein: {getTotal(props.foods.map(food => (food.protein)))}
                             </p>
                             <p class="flex-1 font-bold text-gray-700 text-base">
-                                Fat: {getTotalFat(props.foods.map(food => (food.fat)))}
+                                Fat: {getTotal(props.foods.map(food => (food.fat)))}
                             </p>
                         </div>
                     </div>

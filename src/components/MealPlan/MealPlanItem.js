@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import DeletePrompt from '../DeletePrompt';
-import {
-    getTotalCalories,
-    getTotalCarbs,
-    getTotalFat,
-    getTotalProtein
-} from '../../utils/Nutrients';
+import { getTotal } from '../../utils/Nutrients';
 
 function MealPlanItem({ mealName, foods, index, selectedDay, deleteMealActionCreator }) {
     const [isDeletePromptOpen, setIsDeletePromptOpen] = useState(false);
@@ -66,16 +61,16 @@ function MealPlanItem({ mealName, foods, index, selectedDay, deleteMealActionCre
                 </div>
                 <div class="border-t flex items-center border-b p-3">
                     <p class="flex-1 font-bold text-gray-700 text-base">
-                        Calories: {getTotalCalories(foods.map(food => (food.calorie)))}
+                        Calories: {getTotal(foods.map(food => (food.calorie)))}
                     </p>
                     <p class="flex-1 font-bold text-gray-700 text-base">
-                        Carb: {getTotalCarbs(foods.map(food => (food.carb)))}
+                        Carb: {getTotal(foods.map(food => (food.carb)))}
                     </p>
                     <p class="flex-1 font-bold text-gray-700 text-base">
-                        Protein: {getTotalProtein(foods.map(food => (food.protein)))}
+                        Protein: {getTotal(foods.map(food => (food.protein)))}
                     </p>
                     <p class="flex-1 font-bold text-gray-700 text-base">
-                        Fat: {getTotalFat(foods.map(food => (food.fat)))}
+                        Fat: {getTotal(foods.map(food => (food.fat)))}
                     </p>
                 </div>
             </div>
