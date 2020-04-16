@@ -30,15 +30,14 @@ const DeletePrompt = ({ isDeletePromptOpen, closeDeletePrompt, deleteItem, itemN
                 <p class="flex-1 flex justify-center items-center text-lg font-medium text-gray-700">{itemName}</p>
                 <div class="flex justify-end">
                     <button
-                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2"
-                        onClick={() => { deleteItem(); closeDeletePrompt(); }}>
-                        Delete
-                    </button>
-
-                    <button
-                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2"
+                        class="font-bold bg-teal-600 hover:bg-teal-700 text-white py-2 px-4 rounded-lg m-3 font-mono font-medium"
                         onClick={closeDeletePrompt}>
                         Close
+                    </button>
+                    <button
+                        class="font-bold bg-teal-600 hover:bg-teal-700 text-white py-2 px-4 rounded-lg m-3 font-mono font-medium"
+                        onClick={() => { deleteItem(); closeDeletePrompt(); }}>
+                        Delete
                     </button>
                 </div>
             </div>

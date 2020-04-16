@@ -21,7 +21,8 @@ function MealPlanEditPage(props) {
             <div class="bg-white p-10 rounded-lg shadow-lg h-full">
                 <div class="h-full flex flex-col">
                     <Link to={"/" + props.selectedDay + "/" + props.index}>
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-2 rounded-lg">
+                        <button
+                            class="bg-teal-600 hover:bg-teal-700 text-white py-2 px-4 rounded-lg font-mono font-bold">
                             back
                         </button>
                     </Link>
