@@ -1,5 +1,5 @@
 
-const updateTextFieldType = "UPDATE_TEXT_FIELD_TYPE";
+const updateFieldType = "UPDATE_TEXT_FIELD_TYPE";
 
 const initialState = {
     name: null,
@@ -9,9 +9,9 @@ const initialState = {
     gender: 'male'
 }
 
-export function updateTextFieldActionCreator(event) {
+export function updateFieldActionCreator(event) {
     return {
-        type: updateTextFieldActionCreator,
+        type: updateFieldActionCreator,
         payload: {
             [event.target.name]: event.target.value
         }
@@ -20,7 +20,7 @@ export function updateTextFieldActionCreator(event) {
 
 
 export const reducer = (state = initialState, action) => {
-    if (action.type === updateTextFieldActionCreator) {
+    if (action.type === updateFieldActionCreator) {
         return {
             ...state,
             ...action.payload
