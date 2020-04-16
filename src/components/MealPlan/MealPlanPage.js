@@ -17,8 +17,8 @@ function MealPlanPage({ selectDayActionCreator, dayNames, dayMealPlans, selected
                     dayNames.map((day) => {
                         return (
                             day === selectedDay ?
-                                <button class="bg-blue-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-3" onClick={selectDayActionCreator.bind(this, day)}> {day}</button> :
-                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-3" onClick={selectDayActionCreator.bind(this, day)}> {day}</button>
+                                <button class="bg-teal-700 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-full m-3" onClick={selectDayActionCreator.bind(this, day)}> {day}</button> :
+                                <button class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-full m-3" onClick={selectDayActionCreator.bind(this, day)}> {day}</button>
                         )
                     })
                 }
