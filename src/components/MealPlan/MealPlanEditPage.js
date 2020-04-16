@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion"
 import FoodEditTable from './FoodEditTable';
 import FoodAddSearch from './FoodAddSearch';
 import { getTotal } from '../../utils/Nutrients';
@@ -20,7 +21,7 @@ function MealPlanEditPage(props) {
         <div class="w-full p-10 h-full">
             <div class="bg-white p-10 rounded-lg shadow-lg h-full">
                 <div class="h-full flex flex-col">
-                    <Link to={"/" + props.selectedDay + "/" + props.index}>
+                    <Link to="/">
                         <button
                             class="text-xs uppercase font-bold bg-teal-600 hover:bg-teal-700 text-white py-2 px-4 rounded-lg">
                             back
@@ -68,7 +69,7 @@ function MealPlanEditPage(props) {
                         deleteFoodActionCreator={props.deleteFoodActionCreator} />
                 </div >
             </div>
-        </div>
+        </div >
     );
 }
 
