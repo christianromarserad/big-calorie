@@ -2,10 +2,11 @@
 const updateTextFieldType = "UPDATE_TEXT_FIELD_TYPE";
 
 const initialState = {
-    name: 'Christian',
-    age: 1,
-    height: 2,
-    weight: 3
+    name: null,
+    age: null,
+    height: null,
+    weight: null,
+    gender: 'male'
 }
 
 export function updateTextFieldActionCreator(event) {

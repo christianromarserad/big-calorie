@@ -2,9 +2,12 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { updateTextFieldActionCreator } from '../../store/UserReducer';
-import { getTotal } from '../../utils/Nutrients'
+import {
+    getTotal,
+    getBMR
+} from '../../utils/Nutrients'
 
-function UserSideBar({ name, age, height, weight, selectedDay, updateTextFieldActionCreator, days }) {
+function UserSideBar({ name, age, height, weight, gender, selectedDay, updateTextFieldActionCreator, days }) {
     const getDayTotalCalories = () => {
         let allFoods = days[selectedDay].map((meal) => (meal.foods.map((food) => (food.calorie)))).flat();
         console.log(allFoods);
@@ -66,6 +69,33 @@ function UserSideBar({ name, age, height, weight, selectedDay, updateTextFieldAc
                     onChange={updateTextFieldActionCreator} />
             </div>
 
+            <div class="w-full my-5">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="weight">
+                    Gender
+                </label>
+                <div class="mt-2">
+                    <label class="inline-flex items-center">
+                        <input
+                            type="radio"
+                            name="gender"
+                            value="male"
+                            onChange={updateTextFieldActionCreator}
+                            checked={gender === "male"} />
+                        <span class="ml-2">Male</span>
+                    </label>
+                    <label class="inline-flex items-center ml-6">
+                        <input
+                            type="radio"
+                            name="gender"
+                            value="female"
+                            onChange={updateTextFieldActionCreator}
+                            checked={gender === "female"} />
+                        <span class="ml-2">Female</span>
+                    </label>
+                </div>
+            </div>
+
+            <div>BMR: {getBMR(age, height, weight, gender)}</div>
             <div>Selected Day: {selectedDay}</div>
             <div>Total Calories: {getTotal(days[selectedDay].map((meal) => (meal.foods.map((food) => (food.calorie)))).flat())}</div>
             <div>Total Carbs: {getTotal(days[selectedDay].map((meal) => (meal.foods.map((food) => (food.carb)))).flat())}</div>
