@@ -27,7 +27,7 @@ const FoodEditTable = ({ day, mealIndex, foods, deleteFoodActionCreator }) => {
 
             <div class="w-full h-full flex flex-col overflow-hidden">
                 <div class="w-full mt-6">
-                    <div class="flex text-center font-medium text-gray-600 bg-teal-300 rounded-md">
+                    <div class="flex text-center font-bold uppercase text-xs text-gray-700 bg-teal-300 rounded-md">
                         <div class="px-4 py-2 w-7/12">Photo</div>
                         <div class="px-4 py-2 w-7/12">Name</div>
                         <div class="px-4 py-2 w-7/12">Carb</div>
@@ -42,7 +42,7 @@ const FoodEditTable = ({ day, mealIndex, foods, deleteFoodActionCreator }) => {
                     {
                         foods.map(({ foodName, calorie, carb, protein, fat, photo }, foodIndex) => {
                             return (
-                                <div class="bg-teal-100 text-center flex mt-5 mb-5 rounded-lg font-bold text-gray-700 border border-gray-400 items-center">
+                                <div class="text-center flex mt-5 mb-5 rounded-lg font-bold text-gray-700 items-center shadow-lg text-sm">
                                     <div class="px-4 py-2 w-7/12"><img class="object-contain h-10 w-20 object-right" src={photo} /></div>
                                     <div class="px-4 py-2 w-7/12">{foodName}</div>
                                     <div class="px-4 py-2 w-7/12">{carb}</div>

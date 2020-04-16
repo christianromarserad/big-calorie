@@ -22,17 +22,17 @@ function MealPlanEditPage(props) {
                 <div class="h-full flex flex-col">
                     <Link to={"/" + props.selectedDay + "/" + props.index}>
                         <button
-                            class="bg-teal-600 hover:bg-teal-700 text-white py-2 px-4 rounded-lg font-mono font-bold">
+                            class="text-xs uppercase font-bold bg-teal-600 hover:bg-teal-700 text-white py-2 px-4 rounded-lg">
                             back
                         </button>
                     </Link>
 
-                    <div class="mt-8 mb-16 flex items-center">
+                    <div class="mt-8 mb-16 flex items-center shadow-lg rounded-lg p-4">
                         <div class="w-full flex-1 mr-2">
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                                 Meal Name
                             </label>
-                            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-400 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            <input class="font-medium appearance-none block w-full bg-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name"
                                 type="text"
                                 placeholder="Doe"
@@ -41,16 +41,16 @@ function MealPlanEditPage(props) {
                         </div>
 
                         <div class="flex-1 flex  ml-2 text-center">
-                            <p class="flex-1 font-bold text-gray-700 text-base">
+                            <p class="flex-1 font-bold text-gray-700 text-xs uppercase">
                                 Calories: {getTotal(props.foods.map(food => (food.calorie)))}
                             </p>
-                            <p class="flex-1 font-bold text-gray-700 text-base">
+                            <p class="flex-1 font-bold text-gray-700 text-xs uppercase">
                                 Carb: {getTotal(props.foods.map(food => (food.carb)))}
                             </p>
-                            <p class="flex-1 font-bold text-gray-700 text-base">
+                            <p class="flex-1 font-bold text-gray-700 text-xs uppercase">
                                 Protein: {getTotal(props.foods.map(food => (food.protein)))}
                             </p>
-                            <p class="flex-1 font-bold text-gray-700 text-base">
+                            <p class="flex-1 font-bold text-gray-700 text-xs uppercase">
                                 Fat: {getTotal(props.foods.map(food => (food.fat)))}
                             </p>
                         </div>

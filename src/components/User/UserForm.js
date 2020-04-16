@@ -58,7 +58,7 @@ function UserForm({ name, age, height, weight, gender, updateFieldActionCreator 
             </div>
 
             <div class="w-full my-5">
-                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="weight">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                     Gender
                 </label>
                 <div class="mt-2">
@@ -69,7 +69,7 @@ function UserForm({ name, age, height, weight, gender, updateFieldActionCreator 
                             value="male"
                             onChange={updateFieldActionCreator}
                             checked={gender === "male"} />
-                        <span class="ml-2">Male</span>
+                        <span class="text-gray-700 ml-2 uppercase tracking-wide font-bold text-xs">Male</span>
                     </label>
                     <label class="inline-flex items-center ml-6">
                         <input
@@ -78,11 +78,11 @@ function UserForm({ name, age, height, weight, gender, updateFieldActionCreator 
                             value="female"
                             onChange={updateFieldActionCreator}
                             checked={gender === "female"} />
-                        <span class="ml-2">Female</span>
+                        <span class="text-gray-700 ml-2 uppercase tracking-wide font-bold text-xs">Female</span>
                     </label>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 
