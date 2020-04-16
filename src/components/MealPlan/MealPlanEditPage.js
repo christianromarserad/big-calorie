@@ -18,7 +18,12 @@ function MealPlanEditPage(props) {
     let { index, day } = props.match.params;
 
     return (
-        <div class="w-full p-10 h-full">
+        <motion.div
+            class="w-full p-10 h-full"
+            initial={{ scale: 0.5 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0 }}
+            transition={{ ease: "easeInOut" }}>
             <div class="bg-white p-10 rounded-lg shadow-lg h-full">
                 <div class="h-full flex flex-col">
                     <Link to="/">
@@ -69,7 +74,7 @@ function MealPlanEditPage(props) {
                         deleteFoodActionCreator={props.deleteFoodActionCreator} />
                 </div >
             </div>
-        </div >
+        </motion.div>
     );
 }
 

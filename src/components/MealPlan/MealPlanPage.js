@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { motion } from "framer-motion"
 import MealPlanItem from './MealPlanItem';
 import {
     selectDayActionCreator,
@@ -11,7 +12,12 @@ import {
 
 function MealPlanPage({ selectDayActionCreator, dayNames, dayMealPlans, selectedDay, deleteMealActionCreator, addMealActionCreator, history }) {
     return (
-        <div class="flex flex-col h-full">
+        <motion.div
+            class="flex flex-col h-full"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 1 }}
+            transition={{ duration: 0 }}>
             <div class="flex justify-center">
                 {
                     dayNames.map((day) => {
@@ -25,6 +31,7 @@ function MealPlanPage({ selectDayActionCreator, dayNames, dayMealPlans, selected
             </div>
 
             <div class="flex flex-wrap overflow-auto">
+
                 {
                     dayMealPlans[selectedDay].map(({ mealName, foods }, index) => {
                         return (
@@ -53,7 +60,7 @@ function MealPlanPage({ selectDayActionCreator, dayNames, dayMealPlans, selected
                     </button>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 }
 

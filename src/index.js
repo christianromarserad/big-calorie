@@ -4,6 +4,7 @@ import './styles/main.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from "react-router-dom";
 import configureStore from './configuration/ConfigureStore';
 import configureAxios from './configuration/ConfigureAxios';
 
@@ -14,7 +15,9 @@ window.store = store;           //For debugging purposes
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <Router>
+        <App />
+      </Router>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
