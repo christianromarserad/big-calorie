@@ -44,9 +44,10 @@ function MealPlanItem({ mealName, foods, index, selectedDay, deleteMealActionCre
                     <table class="table-auto w-full">
                         <tbody>
                             {
-                                foods.map(({ foodName, calorie, carb, protein, fat }) => {
+                                foods.map(({ foodName, calorie, carb, protein, fat, photo }) => {
                                     return (
                                         <tr >
+                                            <td><img class="h-8 w-12 object-contain" src={photo} /></td>
                                             <td class="px-4 py-2">{foodName}</td>
                                             <td class="px-4 py-2 text-xs">carb: {carb}</td>
                                             <td class="px-4 py-2 text-xs">protein: {protein}</td>
