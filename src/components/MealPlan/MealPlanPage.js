@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { motion, AnimatePresence } from "framer-motion"
-import MealPlanItem from './MealPlanItem';
+import MealPlanItemList from './MealPlanItemList';
 import {
     selectDayActionCreator,
     deleteMealActionCreator,
     addMealActionCreator
 } from '../../store/MealPlanReducer';
 
-function MealPlanPage({ selectDayActionCreator, dayNames, dayMealPlans, selectedDay, deleteMealActionCreator, addMealActionCreator, history }) {
+function MealPlanPage({ selectDayActionCreator, dayNames, dayMealPlans, selectedDay, deleteMealActionCreator, addMealActionCreator }) {
     let [nextDay, setNextDay] = useState(null);
     let [isRightDirection, setIsRightDirection] = useState(true);
 
@@ -58,7 +57,7 @@ function MealPlanPage({ selectDayActionCreator, dayNames, dayMealPlans, selected
 
     return (
         <motion.div
-            class="flex flex-col h-full"
+            class="flex flex-col h-full overflow-hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 1 }}
@@ -84,48 +83,16 @@ function MealPlanPage({ selectDayActionCreator, dayNames, dayMealPlans, selected
                 }
             </div>
 
-            <div class="flex flex-wrap overflow-auto overflow-x-hidden">
-                <AnimatePresence exitBeforeEnter>
-                    {
-                        dayMealPlans[selectedDay].map(({ mealName, foods }, index) => {
-                            return (
-                                <motion.div
-                                    class="h-72 w-6/12 p-5"
-                                    key={selectedDay + mealName + index}
-                                    initial={{ x: getInitialPosition() }}
-                                    animate={{ x: 0 }}
-                                    exit={{ x: getExitPosition() }}
-                                    transition={{ ease: "easeInOut" }}>
-                                    <MealPlanItem
-                                        mealName={mealName}
-                                        foods={foods}
-                                        index={index}
-                                        selectedDay={selectedDay}
-                                        deleteMealActionCreator={deleteMealActionCreator} />
-                                </motion.div>
-                            );
-                        })
-                    }
-                    <motion.div
-                        class="h-72 w-6/12 p-5"
-                        key={'/edit/' + selectedDay + '/' + dayMealPlans[selectedDay].length}
-                        initial={{ x: getInitialPosition() }}
-                        animate={{ x: 0 }}
-                        exit={{ x: getExitPosition() }}
-                        transition={{ ease: "easeInOut" }}>
-                        <button
-                            class="bg-white rounded-lg shadow-lg w-full h-full flex flex-1 text-teal-400 hover:text-teal-700 justify-center"
-                            onClick={() => { addMealActionCreator(selectedDay); history.push('/edit/' + selectedDay + '/' + dayMealPlans[selectedDay].length); }}>
-                            <svg
-                                class="h-24 fill-current"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20">
-                                <path d="M11 9h4v2h-4v4H9v-4H5V9h4V5h2v4zm-1 11a10 10 0 110-20 10 10 0 010 20zm0-2a8 8 0 100-16 8 8 0 000 16z" />
-                            </svg>
-                        </button>
-                    </motion.div>
-                </AnimatePresence>
-            </div>
+            <AnimatePresence exitBeforeEnter>
+                <MealPlanItemList
+                    key={selectedDay}
+                    meals={dayMealPlans[selectedDay]}
+                    selectedDay={selectedDay}
+                    deleteMealActionCreator={deleteMealActionCreator}
+                    addMealActionCreator={addMealActionCreator}
+                    initialPosition={getInitialPosition()}
+                    exitPosition={getExitPosition()} />
+            </AnimatePresence>
         </motion.div >
     );
 }
@@ -146,4 +113,4 @@ function mapDispatchToProps(dispatch) {
     }, dispatch);
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MealPlanPage));
+export default connect(mapStateToProps, mapDispatchToProps)(MealPlanPage);
