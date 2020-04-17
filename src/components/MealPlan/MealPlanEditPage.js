@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion"
 import FoodEditTable from './FoodEditTable';
 import FoodAddSearch from './FoodAddSearch';
-import { getTotal } from '../../utils/Nutrients';
+import { getTotal } from '../../utils/Functions';
 import {
     updateMealNameActionCreator,
     addFoodActionCreator,

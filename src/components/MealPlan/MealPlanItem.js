@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import DeletePrompt from '../DeletePrompt';
-import { getTotal } from '../../utils/Nutrients';
+import { getTotal } from '../../utils/Functions';
 
 function MealPlanItem({ mealName, foods, index, selectedDay, deleteMealActionCreator }) {
     const [isDeletePromptOpen, setIsDeletePromptOpen] = useState(false);

@@ -2,7 +2,7 @@ import React from 'react';
 import {
     getTotal,
     getBMR
-} from '../../utils/Nutrients'
+} from '../../utils/Functions'
 
 function UserComputation({ age, height, weight, gender, selectedDay, days }) {
     return (
