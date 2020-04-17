@@ -13,6 +13,7 @@ const initialState = {
         monday: [
             {
                 mealName: 'monday1',
+                dateCreated: 'Fri Jun 22 2018 10:54:33 GMT+0530',
                 foods: [
                     {
                         foodName: "pineapple",
@@ -63,6 +64,7 @@ const initialState = {
             },
             {
                 mealName: 'monday2',
+                dateCreated: 'Fri Jun 23 2018 10:54:33 GMT+0530',
                 foods: [
                     {
                         foodName: "pineapple",
@@ -95,6 +97,7 @@ const initialState = {
             },
             {
                 mealName: 'monday2',
+                dateCreated: 'Fri Jun 24 2018 10:54:33 GMT+0530',
                 foods: [
                     {
                         foodName: "pineapple",
@@ -129,6 +132,7 @@ const initialState = {
         tuesday: [
             {
                 mealName: 'tuesday1',
+                dateCreated: 'Fri Jun 25 2018 10:54:33 GMT+0530',
                 foods: [
                     {
                         foodName: "pineapple",
@@ -161,6 +165,7 @@ const initialState = {
             },
             {
                 mealName: 'tuesday2',
+                dateCreated: 'Fri Jun 26 2018 10:54:33 GMT+0530',
                 foods: [
                     {
                         foodName: "pineapple",
@@ -195,6 +200,7 @@ const initialState = {
         wednesday: [
             {
                 mealName: 'wednesday1',
+                dateCreated: 'Fri Jun 27 2018 10:54:33 GMT+0530',
                 foods: [
                     {
                         foodName: "pineapple",
@@ -227,6 +233,7 @@ const initialState = {
             },
             {
                 mealName: 'wednesday2',
+                dateCreated: 'Fri Jun 28 2018 10:54:33 GMT+0530',
                 foods: [
                     {
                         foodName: "pineapple",
@@ -261,6 +268,7 @@ const initialState = {
         thursday: [
             {
                 mealName: 'thursday1',
+                dateCreated: 'Fri Jun 29 2018 10:54:33 GMT+0530',
                 foods: [
                     {
                         foodName: "pineapple",
@@ -293,6 +301,7 @@ const initialState = {
             },
             {
                 mealName: 'thursday2',
+                dateCreated: 'Fri Jun 30 2018 10:54:33 GMT+0530',
                 foods: [
                     {
                         foodName: "pineapple",
@@ -327,6 +336,7 @@ const initialState = {
         friday: [
             {
                 mealName: 'friday1',
+                dateCreated: 'Fri Jun 31 2018 10:54:33 GMT+0530',
                 foods: [
                     {
                         foodName: "pineapple",
@@ -359,6 +369,7 @@ const initialState = {
             },
             {
                 mealName: 'friday2',
+                dateCreated: 'Fri Jun 31 2018 10:54:33 GMT+0530',
                 foods: [
                     {
                         foodName: "pineapple",
@@ -393,6 +404,7 @@ const initialState = {
         saturday: [
             {
                 mealName: 'saturday1',
+                dateCreated: 'Fri Jun 32 2018 10:54:33 GMT+0530',
                 foods: [
                     {
                         foodName: "pineapple",
@@ -425,6 +437,7 @@ const initialState = {
             },
             {
                 mealName: 'saturday2',
+                dateCreated: 'Fri Jun 33 2018 10:54:33 GMT+0530',
                 foods: [
                     {
                         foodName: "pineapple",
@@ -459,6 +472,7 @@ const initialState = {
         sunday: [
             {
                 mealName: 'sunday1',
+                dateCreated: 'Fri Jun 34 2018 10:54:33 GMT+0530',
                 foods: [
                     {
                         foodName: "pineapple",
@@ -491,6 +505,7 @@ const initialState = {
             },
             {
                 mealName: 'sunday2',
+                dateCreated: 'Fri Jun 35 2018 10:54:33 GMT+0530',
                 foods: [
                     {
                         foodName: "pineapple",
@@ -693,6 +708,7 @@ export const reducer = (state = initialState, action) => {
         let newMeals = state.days[action.day].map((meal) => (meal));
         newMeals.push({
             mealName: 'New Meal',
+            dateCreated: Date.now().toString(),
             foods: []
         });
         return {
