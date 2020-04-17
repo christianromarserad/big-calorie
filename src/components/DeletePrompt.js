@@ -1,48 +1,49 @@
 import React from 'react';
 import Modal from 'react-modal';
+import { motion, AnimatePresence } from "framer-motion"
 
 const DeletePrompt = ({ isDeletePromptOpen, closeDeletePrompt, deleteItem, itemName }) => {
-    const defaultStyles = {
-        overlay: {
-            backgroundColor: 'rgba(0, 0, 0, 0.5)'
-        },
-        content: {
-            top: '50%',
-            left: '50%',
-            right: 'auto',
-            bottom: 'auto',
-            marginRight: '-50%',
-            padding: 0,
-            margin: 0,
-            border: 'none',
-            transform: 'translate(-50%, -50%)',
-        }
-    };
 
     return (
-        <Modal
-            isOpen={isDeletePromptOpen}
-            onRequestClose={closeDeletePrompt}
-            style={defaultStyles}>
+        <AnimatePresence>
+            {
+                isDeletePromptOpen &&
+                <motion.div
+                    class="absolute top-0 right-0 h-full w-full bg-modal flex justify-center items-center"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}>
 
-            <div class="bg-white h-48 w-88 rounded-lg p-6 pb-2 flex flex-col">
-                <p class="text-lg text-gray-700 font-normal">Are you sure you want to delete this?</p>
-                <p class="flex-1 flex justify-center items-center text-lg font-medium text-gray-700">{itemName}</p>
-                <div class="flex justify-end">
-                    <button
-                        class="text-xs uppercase font-bold bg-teal-600 hover:bg-teal-700 text-white py-2 px-4 rounded-lg mr-2"
-                        onClick={closeDeletePrompt}>
-                        Close
-                    </button>
-                    <button
-                        class="text-xs uppercase font-bold bg-teal-600 hover:bg-teal-700 text-white py-2 px-4 rounded-lg"
-                        onClick={() => { deleteItem(); closeDeletePrompt(); }}>
-                        Delete
-                    </button>
-                </div>
-            </div>
-
-        </Modal>
+                    <motion.div
+                        class="bg-white h-48 w-88 flex flex-col rounded-lg"
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        exit={{ scale: 0 }}>
+                        <p class="text-lg text-gray-700 font-normal flex items-center justify-center p-2 border-b">
+                            <svg
+                                class="h-10 fill-current text-red-500"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                <path d="M2.93 17.07A10 10 0 1117.07 2.93 10 10 0 012.93 17.07zM9 5v6h2V5H9zm0 8v2h2v-2H9z" />
+                            </svg>
+                            <p class="text-sm ml-4">Are you sure you want to delete this?</p>
+                        </p>
+                        <p class="flex-1 flex justify-center items-center text-sm font-bold text-gray-700">{itemName}</p>
+                        <div class="flex justify-end p-2 border-t">
+                            <button
+                                class="text-xs uppercase font-bold bg-teal-600 hover:bg-teal-700 text-white py-2 px-4 rounded-lg mr-2"
+                                onClick={closeDeletePrompt}>
+                                Close
+                        </button>
+                            <button
+                                class="text-xs uppercase font-bold bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded-lg"
+                                onClick={() => { deleteItem(); closeDeletePrompt(); }}>
+                                Delete
+                        </button>
+                        </div>
+                    </motion.div>
+                </motion.div>
+            }
+        </AnimatePresence>
     );
 }
 
