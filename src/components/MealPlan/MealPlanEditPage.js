@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useParams } from "react-router-dom";
+import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
@@ -14,9 +12,7 @@ import {
     deleteFoodActionCreator
 } from '../../store/MealPlanReducer';
 
-function MealPlanEditPage(props) {
-    let { index, day } = props.match.params;
-
+function MealPlanEditPage({ mealName, foods, updateMealNameActionCreator, addFoodActionCreator, deleteFoodActionCreator, match: { params: { index, day } } }) {
     return (
         <motion.div
             class="w-full p-10 h-full"
@@ -24,6 +20,7 @@ function MealPlanEditPage(props) {
             animate={{ scale: 1 }}
             exit={{ scale: 0 }}
             transition={{ ease: "easeInOut" }}>
+
             <div class="bg-white p-10 rounded-lg shadow-lg h-full">
                 <div class="h-full flex flex-col">
                     <Link to="/">
@@ -38,26 +35,27 @@ function MealPlanEditPage(props) {
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                                 Meal Name
                             </label>
-                            <input class="font-medium appearance-none block w-full bg-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            <input
+                                class="font-medium appearance-none block w-full bg-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name"
                                 type="text"
                                 placeholder="Doe"
-                                value={props.mealName}
-                                onChange={props.updateMealNameActionCreator.bind(this, day, index)} />
+                                value={mealName}
+                                onChange={updateMealNameActionCreator.bind(this, day, index)} />
                         </div>
 
                         <div class="flex-1 flex  ml-2 text-center">
                             <p class="flex-1 font-bold text-gray-700 text-xs uppercase">
-                                Calories: {getTotal(props.foods.map(food => (food.calorie)))}
+                                Calories: {getTotal(foods.map(food => (food.calorie)))}
                             </p>
                             <p class="flex-1 font-bold text-gray-700 text-xs uppercase">
-                                Carb: {getTotal(props.foods.map(food => (food.carb)))}
+                                Carb: {getTotal(foods.map(food => (food.carb)))}
                             </p>
                             <p class="flex-1 font-bold text-gray-700 text-xs uppercase">
-                                Protein: {getTotal(props.foods.map(food => (food.protein)))}
+                                Protein: {getTotal(foods.map(food => (food.protein)))}
                             </p>
                             <p class="flex-1 font-bold text-gray-700 text-xs uppercase">
-                                Fat: {getTotal(props.foods.map(food => (food.fat)))}
+                                Fat: {getTotal(foods.map(food => (food.fat)))}
                             </p>
                         </div>
                     </div>
@@ -65,13 +63,13 @@ function MealPlanEditPage(props) {
                     <FoodAddSearch
                         day={day}
                         mealIndex={index}
-                        addFoodActionCreator={props.addFoodActionCreator} />
+                        addFoodActionCreator={addFoodActionCreator} />
 
                     <FoodEditTable
                         day={day}
                         mealIndex={index}
-                        foods={props.foods}
-                        deleteFoodActionCreator={props.deleteFoodActionCreator} />
+                        foods={foods}
+                        deleteFoodActionCreator={deleteFoodActionCreator} />
                 </div >
             </div>
         </motion.div>
