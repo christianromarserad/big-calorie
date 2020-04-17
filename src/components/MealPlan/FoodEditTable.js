@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 import DeletePrompt from '../DeletePrompt';
 
 const FoodEditTable = ({ day, mealIndex, foods, deleteFoodActionCreator }) => {
