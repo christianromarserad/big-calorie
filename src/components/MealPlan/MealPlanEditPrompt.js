@@ -1,40 +1,34 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion"
 import FoodEditTable from './FoodEditTable';
 import FoodAddSearch from './FoodAddSearch';
 import { getTotal } from '../../utils/Functions';
+import Prompt from '../Prompt';
 import {
     updateMealNameActionCreator,
     addFoodActionCreator,
     deleteFoodActionCreator
 } from '../../store/MealPlanReducer';
 
-function MealPlanEditPage({ mealName, foods, updateMealNameActionCreator, addFoodActionCreator, deleteFoodActionCreator, match: { params: { index, day } } }) {
+function MealPlanEditPrompt({ mealName, foods, updateMealNameActionCreator, addFoodActionCreator, deleteFoodActionCreator, index, day, isMealPlanEditPromptOpen, closeMealPlanEditPrompt }) {
     return (
-        <motion.div
-            class="w-full p-10 h-full"
-            initial={{ scale: 0.5 }}
-            animate={{ scale: 1 }}
-            exit={{ scale: 0 }}
-            transition={{ ease: "easeInOut" }}>
-
+        <Prompt
+            isPromptOpen={isMealPlanEditPromptOpen}
+            styles="w-full p-10 h-full">
             <div class="bg-white p-10 rounded-lg shadow-lg h-full">
                 <div class="h-full flex flex-col">
-                    <Link to="/">
-                        <button
-                            class="text-xs uppercase font-bold bg-teal-600 hover:bg-teal-700 text-white py-2 px-4 rounded-lg">
-                            back
-                        </button>
-                    </Link>
+                    <button
+                        class="text-xs uppercase font-bold bg-teal-600 hover:bg-teal-700 text-white py-2 px-4 rounded-lg w-16"
+                        onClick={closeMealPlanEditPrompt}>
+                        back
+                    </button>
 
                     <div class="mt-8 mb-16 flex items-center shadow-lg rounded-lg p-4">
                         <div class="w-full flex-1 mr-2">
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                                 Meal Name
-                            </label>
+                                </label>
                             <input
                                 class="font-medium appearance-none block w-full bg-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name"
@@ -70,14 +64,14 @@ function MealPlanEditPage({ mealName, foods, updateMealNameActionCreator, addFoo
                         mealIndex={index}
                         foods={foods}
                         deleteFoodActionCreator={deleteFoodActionCreator} />
-                </div >
+                </div>
             </div>
-        </motion.div>
+        </Prompt>
     );
 }
 
 function mapStateToProps(state, ownProps) {
-    let { index, day } = ownProps.match.params;
+    let { index, day } = ownProps;
     return {
         mealName: state.mealPlan.days[day][index].mealName,
         foods: state.mealPlan.days[day][index].foods
@@ -93,4 +87,4 @@ function mapDispatchToProps(dispatch) {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(MealPlanEditPage);
+export default connect(mapStateToProps, mapDispatchToProps)(MealPlanEditPrompt);

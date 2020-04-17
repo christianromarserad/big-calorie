@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Route } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion"
 import MealPlanItemList from './MealPlanItemList';
 import {
@@ -57,11 +58,11 @@ function MealPlanPage({ selectDayActionCreator, dayNames, dayMealPlans, selected
 
     return (
         <motion.div
-            class="flex flex-col h-full overflow-hidden"
+            class="flex flex-col h-full overflow-hidden relative"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 1 }}
-            transition={{ duration: 0 }}>
+            transition={{ duration: 0.5 }}>
 
             <div class="flex justify-center">
                 {
