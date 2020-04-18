@@ -3,7 +3,6 @@ import MealPlanItem from './MealPlanItem';
 import { motion } from "framer-motion"
 
 function MealPlanItemList({ meals, selectedDay, deleteMealActionCreator, addMealActionCreator, initialPosition, exitPosition }) {
-    console.log(exitPosition);
     return (
         <motion.div
             class="flex flex-wrap overflow-auto overflow-x-hidden"
