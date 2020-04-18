@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import DeletePrompt from '../DeletePrompt';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const FoodEditTable = ({ day, mealIndex, foods, deleteFoodActionCreator }) => {
     const [isDeletePromptOpen, setIsDeletePromptOpen] = useState(false);
@@ -37,27 +38,39 @@ const FoodEditTable = ({ day, mealIndex, foods, deleteFoodActionCreator }) => {
                 </div>
 
                 <div class="flex-1 overflow-auto">
-                    {
-                        foods.map(({ foodName, calorie, carb, protein, fat, photo }, foodIndex) => {
-                            return (
-                                <div class="text-center flex mt-5 mb-5 rounded-lg font-bold text-gray-700 items-center shadow-lg text-sm">
-                                    <div class="px-4 py-2 w-7/12"><img class="object-contain h-10 w-20 object-right" src={photo} /></div>
-                                    <div class="px-4 py-2 w-7/12">{foodName}</div>
-                                    <div class="px-4 py-2 w-7/12">{carb}</div>
-                                    <div class="px-4 py-2 w-7/12">{protein}</div>
-                                    <div class="px-4 py-2 w-7/12">{fat}</div>
-                                    <div class="px-4 py-2 w-7/12">{calorie}</div>
-                                    <div class="px-4 py-2 w-7/12">
-                                        <button
-                                            class="text-gray-600 hover:text-black py-2 px-2 rounded-lg"
-                                            onClick={() => { setDeleteFoodIndex(foodIndex); openDeletePrompt(foodName); }}>
-                                            <svg class="h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z" /></svg>
-                                        </button>
-                                    </div>
-                                </div>
-                            );
-                        })
-                    }
+                    <AnimatePresence>
+                        {
+                            foods.map(({ foodName, calorie, carb, protein, fat, photo, dateCreated }, foodIndex) => {
+                                return (
+                                    <motion.div
+                                        class="text-center flex mt-5 mb-5 rounded-lg font-bold text-gray-700 items-center shadow-lg text-sm"
+                                        positionTransition={{ ease: "easeInOut" }}
+                                        initial={{ opacity: 0, scale: 0.3 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        transition={{ ease: "easeInOut" }}
+                                        exit={{ opacity: 0, scale: 0.3 }}
+                                        key={day + foodName + dateCreated}
+                                    >
+                                        <div class="px-4 py-2 w-7/12">{day + foodName + dateCreated}</div>
+                                        <div class="px-4 py-2 w-7/12"><img class="object-contain h-10 w-20 object-right" src={photo} /></div>
+                                        <div class="px-4 py-2 w-7/12">{foodName}</div>
+                                        <div class="px-4 py-2 w-7/12">{carb}</div>
+                                        <div class="px-4 py-2 w-7/12">{protein}</div>
+                                        <div class="px-4 py-2 w-7/12">{fat}</div>
+                                        <div class="px-4 py-2 w-7/12">{calorie}</div>
+                                        <div class="px-4 py-2 w-7/12">
+                                            <button
+                                                class="text-gray-600 hover:text-black py-2 px-2 rounded-lg"
+                                                onClick={() => { setDeleteFoodIndex(foodIndex); openDeletePrompt(foodName); }}>
+                                                <svg class="h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z" /></svg>
+                                            </button>
+                                        </div>
+                                    </motion.div>
+                                );
+                            })
+                        }
+                    </AnimatePresence>
+
                 </div>
             </div>
         </>
