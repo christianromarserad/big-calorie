@@ -1,5 +1,4 @@
 import React from 'react';
-import { Switch, Route } from "react-router-dom";
 import { AnimatePresence } from "framer-motion"
 import MealPlanPage from './components/MealPlan/MealPlanPage';
 import UserSideBar from './components/User/UserSideBar';
@@ -12,9 +11,7 @@ function App(props) {
       </div>
       <div class="flex-1">
         <AnimatePresence exitBeforeEnter>
-          <Switch>
-            <Route path="/" component={MealPlanPage} />
-          </Switch>
+          <MealPlanPage />
         </AnimatePresence>
       </div>
     </div>
