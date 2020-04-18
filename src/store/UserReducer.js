@@ -1,3 +1,4 @@
+import { MALE } from '../utils/Constants'
 
 const updateFieldType = "UPDATE_TEXT_FIELD_TYPE";
 
@@ -6,7 +7,7 @@ const initialState = {
     age: null,
     height: null,
     weight: null,
-    gender: 'male'
+    gender: MALE
 }
 
 export function updateFieldActionCreator(event) {

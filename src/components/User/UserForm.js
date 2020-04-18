@@ -1,4 +1,5 @@
 import React from 'react';
+import { MALE, FEMALE } from '../../utils/Constants';
 
 function UserForm({ name, age, height, weight, gender, updateFieldActionCreator }) {
     return (
@@ -66,18 +67,18 @@ function UserForm({ name, age, height, weight, gender, updateFieldActionCreator 
                         <input
                             type="radio"
                             name="gender"
-                            value="male"
+                            value={MALE}
                             onChange={updateFieldActionCreator}
-                            checked={gender === "male"} />
+                            checked={gender === MALE} />
                         <span class="text-gray-700 ml-2 uppercase tracking-wide font-bold text-xs">Male</span>
                     </label>
                     <label class="inline-flex items-center ml-6">
                         <input
                             type="radio"
                             name="gender"
-                            value="female"
+                            value={FEMALE}
                             onChange={updateFieldActionCreator}
-                            checked={gender === "female"} />
+                            checked={gender === FEMALE} />
                         <span class="text-gray-700 ml-2 uppercase tracking-wide font-bold text-xs">Female</span>
                     </label>
                 </div>

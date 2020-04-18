@@ -3,10 +3,11 @@ import { applyMiddleware, createStore, combineReducers } from 'redux';
 import { reducer as CountReducer } from '../store/CounterReducer';
 import { reducer as MealPlanReducer } from '../store/MealPlanReducer';
 import { reducer as UserReducer } from '../store/UserReducer';
+import { LOCALSTORAGE_STATE_NAME } from '../utils/Constants'
 
 const loadState = () => {
     try {
-        const serializedState = localStorage.getItem('big-calorie-state');
+        const serializedState = localStorage.getItem(LOCALSTORAGE_STATE_NAME);
         if (serializedState === null) {
             return undefined;
         }
@@ -20,7 +21,7 @@ const loadState = () => {
 const saveState = (state) => {
     try {
         const serializedState = JSON.stringify(state);
-        localStorage.setItem('big-calorie-state', serializedState);
+        localStorage.setItem(LOCALSTORAGE_STATE_NAME, serializedState);
     } catch (error) {
         //TODO
     }

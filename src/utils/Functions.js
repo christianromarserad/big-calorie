@@ -1,3 +1,5 @@
+import { MALE } from './Constants';
+
 export const getTotal = (values) => {
     let total = values.reduce((accumulator, currentValue) => (accumulator + currentValue), 0);
     return Math.round(total);
@@ -6,7 +8,7 @@ export const getTotal = (values) => {
 // Formula: https://www.thecalculatorsite.com/articles/health/bmr-formula.php
 export const getBMR = (age, height, weight, gender) => {
     if (age && height && weight && gender) {
-        if (gender === "male") {
+        if (gender === MALE) {
             return Math.round(66.47 + (13.75 * weight) + (5.003 * height) - (6.755 * age));
         }
         else {
