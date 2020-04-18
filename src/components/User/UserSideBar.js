@@ -2,12 +2,15 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { updateFieldActionCreator } from '../../store/UserReducer';
+import appLogo from '../../images/bigcalorie.png';
+import nutritionixLogo from '../../images/nutritionix.png';
 import UserForm from './UserForm';
 import UserComputation from './UserComputation';
 
 function UserSideBar({ name, age, height, weight, gender, selectedDay, updateFieldActionCreator, days }) {
     return (
         <div class="bg-white w-64 h-full shadow-lg py-4 px-4 flex flex-col">
+            <img src={appLogo} class="object-contain h-12 w-full" />
             <UserForm
                 name={name}
                 age={age}
@@ -25,6 +28,7 @@ function UserSideBar({ name, age, height, weight, gender, selectedDay, updateFie
                     selectedDay={selectedDay}
                     days={days} />
             </div>
+            <img src={nutritionixLogo} class="object-contain h-10 w-full" />
         </div >
     )
 }

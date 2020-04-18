@@ -6,7 +6,7 @@ import {
 
 function UserComputation({ age, height, weight, gender, selectedDay, days }) {
     return (
-        <div class="h-full flex flex-col justify-center">
+        <div class="h-full flex flex-col mt-2">
             <div class="flex mb-6">
                 <p class="flex-1 text-gray-700 uppercase font-bold text-xs">BMR:</p>
                 <p class="text-xs text-gray-700">{getBMR(age, height, weight, gender) ?? "Incomplete Form"}</p>

@@ -5,10 +5,10 @@ const DeletePrompt = ({ isDeletePromptOpen, closeDeletePrompt, deleteItem, itemN
 
     return (
         <Prompt
-            styles="bg-white h-48 w-88 flex flex-col rounded-lg shadow-xl"
+            styles="bg-white h-48 w-88 flex flex-col rounded-xl shadow-xl"
             isPromptOpen={isDeletePromptOpen}>
 
-            <p class="text-lg text-gray-700 font-normal flex items-center justify-center p-2 border-b" >
+            <p class="text-lg text-gray-700 font-semibold flex items-center justify-center p-2 bg-teal-300 shadow-sm rounded-t-xl">
                 <svg
                     class="h-10 fill-current text-red-500"
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">

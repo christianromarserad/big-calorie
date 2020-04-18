@@ -40,7 +40,7 @@ function MealPlanItem({ mealName, foods, index, selectedDay, deleteMealActionCre
                 closeMealPlanEditPrompt={closeMealPlanEditPrompt} />
 
             <div class="bg-white rounded-xl shadow-lg w-full h-full flex-1 flex flex-col">
-                <div class="flex items-center border-b p-3 shadow-sm">
+                <div class="flex items-center p-3 bg-teal-300 rounded-t-xl shadow-sm">
                     <p class="flex-1 font-bold text-gray-700 text-lg">
                         {mealName}
                     </p>
