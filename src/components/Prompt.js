@@ -1,5 +1,4 @@
 import React from 'react';
-import Modal from 'react-modal';
 import { motion, AnimatePresence } from "framer-motion"
 
 const Prompt = ({ isPromptOpen, children, styles }) => {

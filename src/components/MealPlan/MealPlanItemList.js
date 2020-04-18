@@ -1,9 +1,8 @@
 import React from 'react';
 import MealPlanItem from './MealPlanItem';
-import { withRouter } from 'react-router-dom';
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 
-function MealPlanItemList({ meals, selectedDay, deleteMealActionCreator, addMealActionCreator, history, initialPosition, exitPosition }) {
+function MealPlanItemList({ meals, selectedDay, deleteMealActionCreator, addMealActionCreator, initialPosition, exitPosition }) {
     console.log(exitPosition);
     return (
         <motion.div
@@ -44,7 +43,7 @@ function MealPlanItemList({ meals, selectedDay, deleteMealActionCreator, addMeal
 
                 <button
                     class="bg-white rounded-lg shadow-lg w-full h-full flex flex-1 text-teal-400 hover:text-teal-700 justify-center"
-                    onClick={() => { addMealActionCreator(selectedDay); history.push('/edit/' + selectedDay + '/' + meals.length); }}>
+                    onClick={() => { addMealActionCreator(selectedDay) }}>
                     <svg
                         class="h-24 fill-current"
                         xmlns="http://www.w3.org/2000/svg"
@@ -59,4 +58,4 @@ function MealPlanItemList({ meals, selectedDay, deleteMealActionCreator, addMeal
 }
 
 
-export default withRouter(MealPlanItemList);
+export default MealPlanItemList;

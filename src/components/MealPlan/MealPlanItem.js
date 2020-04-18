@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
 import DeletePrompt from '../DeletePrompt';
 import MealPlanEditPrompt from './MealPlanEditPrompt';
 import { getTotal } from '../../utils/Functions';
