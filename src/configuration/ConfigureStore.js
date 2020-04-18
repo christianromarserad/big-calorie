@@ -1,6 +1,5 @@
 import thunk from 'redux-thunk';
 import { applyMiddleware, createStore, combineReducers } from 'redux';
-import { reducer as CountReducer } from '../store/CounterReducer';
 import { reducer as MealPlanReducer } from '../store/MealPlanReducer';
 import { reducer as UserReducer } from '../store/UserReducer';
 import { LOCALSTORAGE_STATE_NAME } from '../utils/Constants'
@@ -31,7 +30,6 @@ const configureStore = () => {
     const persistedState = loadState();
 
     const store = createStore(combineReducers({
-        counter: CountReducer,
         mealPlan: MealPlanReducer,
         user: UserReducer
     }), persistedState, applyMiddleware(thunk));
