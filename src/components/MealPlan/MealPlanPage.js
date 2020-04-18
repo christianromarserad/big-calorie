@@ -68,16 +68,20 @@ function MealPlanPage({ selectDayActionCreator, dayNames, dayMealPlans, selected
                     dayNames.map((day) => {
                         return (
                             day === selectedDay ?
-                                <button
+                                <motion.button
+                                    initial={{ scale: 0 }}
+                                    animate={{ scale: 1 }}
+                                    key={selectedDay}
                                     class="text-xs uppercase font-bold bg-teal-700 hover:bg-teal-700 text-white py-2 px-4 rounded-lg m-3"
                                     onClick={setNextDay.bind(this, day)}>
                                     {day}
-                                </button> :
-                                <button
+                                </motion.button> :
+                                <motion.button
                                     class="text-xs uppercase font-bold text-gray-600 hover:bg-teal-300 py-2 px-4 rounded-lg m-3"
-                                    onClick={setNextDay.bind(this, day)}>
+                                    onClick={setNextDay.bind(this, day)}
+                                    whileHover={{ scale: 1.1 }}>
                                     {day}
-                                </button>
+                                </motion.button>
                         )
                     })
                 }
