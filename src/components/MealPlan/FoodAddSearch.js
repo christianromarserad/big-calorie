@@ -32,12 +32,12 @@ const FoodAddSearch = ({ day, mealIndex, addFoodActionCreator }) => {
     return (
         <div class="relative">
             <input
-                class="font-medium appearance-none block w-full bg-gray-300 text-gray-700 border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                type="text" 
+                class="font-medium appearance-none block w-full bg-gray-300 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                type="text"
                 placeholder="Search"
                 value={searchKeyWord}
                 onBlur={searchOnFocusOut}
-                onChange={searchOnChange} /> 
+                onChange={searchOnChange} />
 
             {
                 searchItems.length != 0 ?
