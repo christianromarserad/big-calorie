@@ -5,7 +5,7 @@ const DeletePrompt = ({ isDeletePromptOpen, closeDeletePrompt, deleteItem, itemN
 
     return (
         <Prompt
-            styles="bg-white h-48 w-88 flex flex-col rounded-lg"
+            styles="bg-white h-48 w-88 flex flex-col rounded-lg shadow-xl"
             isPromptOpen={isDeletePromptOpen}>
 
             <p class="text-lg text-gray-700 font-normal flex items-center justify-center p-2 border-b" >
