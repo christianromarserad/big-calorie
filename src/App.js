@@ -5,7 +5,7 @@ import Layout from './components/Layout';
 
 function App(props) {
   return (
-    <div class="flex bg-gray-200 h-screen">
+    <div class="flex bg-gray-200" style={{ minHeight: '-webkit-fill-available' }}>
       <Layout />
     </div>
   );
