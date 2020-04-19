@@ -55,7 +55,7 @@ function MobileLayout({ selectDayActionCreator, dayNames, dayMealPlans, selected
 
 
     return (
-        <div class="flex flex-col h-screen">
+        <Div100vh class="flex flex-col">
             <Navbar
                 navOptionsArray={['BMR Calculator', ...dayNames].map((dayName) => ({
                     name: dayName,
@@ -90,7 +90,7 @@ function MobileLayout({ selectDayActionCreator, dayNames, dayMealPlans, selected
                     }
                 </AnimatePresence>
             </div>
-        </div>
+        </Div100vh>
     );
 }
 
