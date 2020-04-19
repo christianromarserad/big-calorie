@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { motion, AnimatePresence } from "framer-motion"
+import Div100vh from 'react-div-100vh';
 import MealPlanItemList from './MealPlan/MealPlanItemList';
 import UserSideBar from './User/UserSideBar';
 import Navbar from './Navbar';
@@ -84,7 +85,9 @@ function MobileLayout({ selectDayActionCreator, dayNames, dayMealPlans, selected
                                 animate={{ x: 0 }}
                                 exit={{ x: getExitPosition() }}
                                 transition={{ ease: "easeInOut" }}>
-                                <UserSideBar />
+                                <Div100vh>
+                                    <UserSideBar />
+                                </Div100vh>
                             </motion.div>
                     }
                 </AnimatePresence>
