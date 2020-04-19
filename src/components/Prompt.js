@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion"
 const Prompt = ({ isPromptOpen, children, closePrompt, vStart, vCenter, vEnd, hStart, hCenter, hEnd, padding }) => {
 
     const getStyles = () => {
-        let styles = "absolute top-0 right-0 h-full w-full bg-modal flex";
+        let styles = "fixed top-0 right-0 h-full w-full bg-modal flex";
 
         if (vStart) {
             styles += " items-start";
