@@ -9,7 +9,7 @@ const NavBar = ({ navOptionsArray }) => {
     return (
         <>
             <BrowserView renderWithFragment>
-                <div class="w-full overflow-hidden flex justify-center">
+                <div class="w-full overflow-hidden flex justify-center p-2">
                     {
                         navOptionsArray.map(({ name, isSelected, onClick }, index) => {
                             return (
@@ -36,9 +36,9 @@ const NavBar = ({ navOptionsArray }) => {
 
 
             <CustomView renderWithFragment condition={isMobile || isTablet}>
-                <div class="w-full overflow-hidden flex">
+                <div class="w-full overflow-hidden flex p-2 bg-teal-500 shadow-lg sticky top-0">
                     <button
-                        class="text-gray-600 hover:text-black py-2 px-2 rounded-lg"
+                        class="text-white py-2 px-2 rounded-lg"
                         onClick={setIsNavPromptOpen.bind(this, true)}>
                         <svg
                             class="h-5 fill-current object-contain"
