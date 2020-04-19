@@ -26,14 +26,14 @@ const FoodEditTable = ({ day, mealIndex, foods, deleteFoodActionCreator }) => {
 
             <div class="w-full h-full flex flex-col overflow-hidden">
                 <div class="w-full mt-6">
-                    <div class="flex text-center font-bold uppercase text-xs text-white bg-teal-600 rounded-md">
-                        <div class="px-4 py-2 w-7/12">Photo</div>
-                        <div class="px-4 py-2 w-7/12">Name</div>
-                        <div class="px-4 py-2 w-7/12">Carb</div>
-                        <div class="px-4 py-2 w-7/12">Protein</div>
-                        <div class="px-4 py-2 w-7/12">Fat</div>
-                        <div class="px-4 py-2 w-7/12">Calorie</div>
-                        <div class="px-4 py-2 w-7/12">Delete</div>
+                    <div class="flex text-center font-bold text-xs text-white bg-teal-600 rounded-md">
+                        <div class="py-2 w-7/12">Photo</div>
+                        <div class="py-2 w-7/12">Name</div>
+                        <div class="py-2 w-7/12 hidden phone:block">Carb</div>
+                        <div class="py-2 w-7/12 hidden phone:block">Protein</div>
+                        <div class="py-2 w-7/12 hidden phone:block">Fat</div>
+                        <div class="py-2 w-7/12">Calorie</div>
+                        <div class="py-2 w-7/12">Delete</div>
                     </div>
                 </div>
 
@@ -43,7 +43,7 @@ const FoodEditTable = ({ day, mealIndex, foods, deleteFoodActionCreator }) => {
                             foods.map(({ foodName, calorie, carb, protein, fat, photo, dateCreated }, foodIndex) => {
                                 return (
                                     <motion.div
-                                        class="text-center flex mt-5 mb-5 rounded-lg font-bold text-gray-700 items-center text-sm shadow-md"
+                                        class="text-center flex mt-5 mb-5 rounded-lg font-bold text-gray-700 items-center text-xs shadow-md"
                                         positionTransition={{ ease: "easeInOut" }}
                                         initial={{ opacity: 0, scale: 0.3 }}
                                         animate={{ opacity: 1, scale: 1 }}
@@ -51,13 +51,13 @@ const FoodEditTable = ({ day, mealIndex, foods, deleteFoodActionCreator }) => {
                                         exit={{ opacity: 0, scale: 0.3 }}
                                         key={day + foodName + dateCreated}
                                     >
-                                        <div class="px-4 py-2 w-7/12"><img class="object-contain h-10 w-20 object-right" src={photo} /></div>
-                                        <div class="px-4 py-2 w-7/12">{foodName}</div>
-                                        <div class="px-4 py-2 w-7/12">{carb}</div>
-                                        <div class="px-4 py-2 w-7/12">{protein}</div>
-                                        <div class="px-4 py-2 w-7/12">{fat}</div>
-                                        <div class="px-4 py-2 w-7/12">{calorie}</div>
-                                        <div class="px-4 py-2 w-7/12">
+                                        <div class="py-2 w-7/12"><img class="object-contain h-10 w-20 object-right" src={photo} /></div>
+                                        <div class="py-2 w-7/12">{foodName}</div>
+                                        <div class="py-2 w-7/12 hidden phone:block">{carb}</div>
+                                        <div class="py-2 w-7/12 hidden phone:block">{protein}</div>
+                                        <div class="py-2 w-7/12 hidden phone:block">{fat}</div>
+                                        <div class="py-2 w-7/12">{calorie}</div>
+                                        <div class="py-2 w-7/12">
                                             <button
                                                 class="text-gray-600 hover:text-black py-2 px-2 rounded-lg"
                                                 onClick={() => { setDeleteFoodIndex(foodIndex); openDeletePrompt(foodName); }}>

@@ -75,9 +75,9 @@ function MealPlanItem({ mealName, foods, index, selectedDay, deleteMealActionCre
                                         <tr >
                                             <td><img class="h-8 w-12 object-contain" src={photo} /></td>
                                             <td class="px-4 py-2 text-xs font-bold">{foodName}</td>
-                                            <td class="px-4 py-2 text-xs">carb: {carb}</td>
-                                            <td class="px-4 py-2 text-xs">protein: {protein}</td>
-                                            <td class="px-4 py-2 text-xs">fat: {fat}</td>
+                                            <td class="px-4 py-2 text-xs hidden phone:table-cell">carb: {carb}</td>
+                                            <td class="px-4 py-2 text-xs hidden phone:table-cell">protein: {protein}</td>
+                                            <td class="px-4 py-2 text-xs hidden phone:table-cell">fat: {fat}</td>
                                             <td class="px-4 py-2 text-xs">calorie: {calorie}</td>
                                         </tr>
                                     );
@@ -86,7 +86,7 @@ function MealPlanItem({ mealName, foods, index, selectedDay, deleteMealActionCre
                         </tbody>
                     </table>
                 </div>
-                <div class="border-t flex items-center border-b p-3">
+                <div class="border-t flex items-center border-b p-3 text-center">
                     <p class="flex-1 font-bold text-gray-700 text-xs">
                         Calories: {getTotal(foods.map(food => (food.calorie)))}
                     </p>

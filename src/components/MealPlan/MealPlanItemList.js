@@ -4,19 +4,12 @@ import { motion } from "framer-motion"
 
 function MealPlanItemList({ meals, selectedDay, deleteMealActionCreator, addMealActionCreator, initialPosition, exitPosition }) {
     return (
-        <motion.div
-            class="flex flex-wrap overflow-auto overflow-x-hidden"
-            initial={{ x: initialPosition }}
-            animate={{ x: 0 }}
-            exit={{ x: exitPosition }}
-            transition={{ ease: "easeInOut" }}>
-
-
+        <div class="flex flex-wrap">
             {
                 meals.map(({ mealName, foods, dateCreated }, index) => {
                     return (
                         <motion.div
-                            class="h-72 w-6/12 p-5"
+                            class="h-72 laptop:w-6/12 w-full p-5"
                             positionTransition={{ ease: "easeInOut" }}
                             initial={{ opacity: 0, y: 50, scale: 0.3 }}
                             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -33,7 +26,7 @@ function MealPlanItemList({ meals, selectedDay, deleteMealActionCreator, addMeal
                 })
             }
             <motion.div
-                class="h-72 w-6/12 p-5"
+                class="h-72 laptop:w-6/12 w-full p-5"
                 positionTransition={{ ease: "easeInOut" }}
                 initial={{ opacity: 0, y: 50, scale: 0.3 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -53,8 +46,7 @@ function MealPlanItemList({ meals, selectedDay, deleteMealActionCreator, addMeal
                     </svg>
                 </motion.button>
             </motion.div>
-
-        </motion.div >
+        </div >
     );
 }
 

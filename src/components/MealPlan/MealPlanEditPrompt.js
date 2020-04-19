@@ -15,8 +15,8 @@ function MealPlanEditPrompt({ mealName, foods, updateMealNameActionCreator, addF
     return (
         <Prompt
             isPromptOpen={isMealPlanEditPromptOpen}
-            styles="w-full p-10 h-full">
-            <div class="bg-white p-10 rounded-lg shadow-lg h-full">
+            styles="w-full p-2 phone:p-10 h-full">
+            <div class="bg-white p-4 rounded-lg shadow-lg h-full">
                 <div class="h-full flex flex-col">
                     <button
                         class="text-xs uppercase font-bold bg-teal-600 hover:bg-teal-700 text-white py-2 px-4 rounded-lg w-16"
@@ -38,7 +38,7 @@ function MealPlanEditPrompt({ mealName, foods, updateMealNameActionCreator, addF
                                 onChange={updateMealNameActionCreator.bind(this, day, index)} />
                         </div>
 
-                        <div class="flex-1 flex  ml-2 text-center">
+                        <div class="flex-1 flex  ml-2 text-center hidden laptop:flex">
                             <p class="flex-1 font-bold text-gray-700 text-xs uppercase">
                                 Calories: {getTotal(foods.map(food => (food.calorie)))}
                             </p>

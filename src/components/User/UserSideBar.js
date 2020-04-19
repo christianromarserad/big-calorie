@@ -9,7 +9,7 @@ import UserComputation from './UserComputation';
 
 function UserSideBar({ name, age, height, weight, gender, selectedDay, updateFieldActionCreator, days }) {
     return (
-        <div class="bg-white w-64 h-full shadow-lg py-4 px-4 flex flex-col">
+        <div class="bg-white h-full shadow-lg py-4 px-4 flex flex-col">
             <img src={appLogo} class="object-contain h-12 w-full" />
             <UserForm
                 name={name}
@@ -20,13 +20,16 @@ function UserSideBar({ name, age, height, weight, gender, selectedDay, updateFie
                 updateFieldActionCreator={updateFieldActionCreator} />
 
             <div class="flex-1">
-                <UserComputation
-                    age={age}
-                    height={height}
-                    weight={weight}
-                    gender={gender}
-                    selectedDay={selectedDay}
-                    days={days} />
+                {
+                    Object.keys(days).indexOf(selectedDay) != -1 &&
+                    <UserComputation
+                        age={age}
+                        height={height}
+                        weight={weight}
+                        gender={gender}
+                        selectedDay={selectedDay}
+                        days={days} />
+                }
             </div>
             <img src={nutritionixLogo} class="object-contain h-10 w-full" />
         </div >

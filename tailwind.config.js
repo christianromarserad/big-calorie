@@ -4,10 +4,11 @@ module.exports = {
   separator: ':',
   theme: {
     screens: {
-      sm: '640px',
-      md: '768px',
-      lg: '1024px',
-      xl: '1280px',
+      phone: '640px',
+      smtablet: '768px',
+      tablet: '1024px',
+      laptop: '1180px',
+      desktop: '1280px',
     },
     colors: {
       transparent: 'transparent',
