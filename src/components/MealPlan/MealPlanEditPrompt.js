@@ -26,14 +26,17 @@ function MealPlanEditPrompt({ mealName, foods, updateMealNameActionCreator, addF
                 animate={{ scale: 1 }}
                 exit={{ scale: 0 }}>
 
-                <button
-                    class="text-xs uppercase font-bold bg-teal-600 hover:bg-teal-700 text-white py-2 px-4 rounded-lg w-16"
-                    onClick={closeMealPlanEditPrompt}>
-                    back
-                    </button>
+                <div>
+                    <button
+                        class="text-xs uppercase font-bold bg-teal-600 hover:bg-teal-700 text-white py-2 px-4 rounded-lg"
+                        onClick={closeMealPlanEditPrompt}>
+                        back
+                </button>
+                </div>
 
-                <div class="mt-8 mb-16 flex items-center shadow-md rounded-lg p-4">
-                    <div class="w-full flex-1 mr-2">
+
+                <div class="mt-8 mb-16 flex items-center phone:shadow-md phone:rounded-lg phone:p-4">
+                    <div class="w-full flex-1">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                             Meal Name
                                 </label>

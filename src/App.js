@@ -1,14 +1,18 @@
 import React from 'react';
-import MealPlanPage from './components/MealPlan/MealPlanPage';
-import UserSideBar from './components/User/UserSideBar';
-import Layout from './components/Layout';
-import Div100vh from 'react-div-100vh';
+import MobileLayout from './components/MobileLayout';
+import DesktopLayout from './components/DesktopLayout';
+import { BrowserView, CustomView, isMobile, isTablet } from 'react-device-detect';
 
 function App(props) {
   return (
-    <Div100vh class="bg-gray-200">
-      <Layout />
-    </Div100vh >
+    <>
+      <BrowserView>
+        <DesktopLayout />
+      </BrowserView>
+      <CustomView condition={isMobile || isTablet}>
+        <MobileLayout />
+      </CustomView>
+    </>
   );
 }
 

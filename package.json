@@ -9,6 +9,7 @@
     "axios": "^0.19.2",
     "framer-motion": "^1.10.3",
     "react": "^16.13.1",
+    "react-device-detect": "^1.11.14",
     "react-div-100vh": "^0.3.8",
     "react-dom": "^16.13.1",
     "react-modal": "^3.11.2",

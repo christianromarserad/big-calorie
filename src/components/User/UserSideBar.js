@@ -20,16 +20,13 @@ function UserSideBar({ name, age, height, weight, gender, selectedDay, updateFie
                 updateFieldActionCreator={updateFieldActionCreator} />
 
             <div class="flex-1">
-                {
-                    Object.keys(days).indexOf(selectedDay) != -1 &&
-                    <UserComputation
-                        age={age}
-                        height={height}
-                        weight={weight}
-                        gender={gender}
-                        selectedDay={selectedDay}
-                        days={days} />
-                }
+                <UserComputation
+                    age={age}
+                    height={height}
+                    weight={weight}
+                    gender={gender}
+                    selectedDay={selectedDay}
+                    days={days} />
             </div>
             <img src={nutritionixLogo} class="object-contain h-10 w-full" />
         </div >
