@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from "framer-motion"
 
-const Prompt = ({ isPromptOpen, children, styles }) => {
-
+const Prompt = ({ isPromptOpen, children, styles, closePrompt }) => {
     return (
         <AnimatePresence>
             {
@@ -11,7 +10,8 @@ const Prompt = ({ isPromptOpen, children, styles }) => {
                     class="absolute top-0 right-0 h-full w-full bg-modal flex justify-center items-center"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}>
+                    exit={{ opacity: 0 }}
+                    onClick={(event) => (event.target === event.currentTarget ? closePrompt() : null)}>
 
                     <motion.div
                         class={styles}
