@@ -11811,19 +11811,6 @@ video {
   transition-duration: 1000ms;
 }
 
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background-color: gray;
-}
-
 @media (min-width: 640px) {
   .phone\:sr-only {
     position: absolute;
@@ -67828,3 +67815,4 @@ video {
     transition-duration: 1000ms;
   }
 }
+

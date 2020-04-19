@@ -54,7 +54,7 @@ function Layout({ selectDayActionCreator, dayNames, dayMealPlans, selectedDay, d
 
     return (
         <motion.div
-            class="flex flex h-full relative w-full"
+            class="flex h-full relative w-full"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 1 }}
