@@ -30,9 +30,9 @@ function MealPlanEditPrompt({ mealName, foods, updateMealNameActionCreator, addF
                     class="text-xs uppercase font-bold bg-teal-600 hover:bg-teal-700 text-white py-2 px-4 rounded-lg w-16"
                     onClick={closeMealPlanEditPrompt}>
                     back
-                    </button>
+                </button>
 
-                <div class="mt-8 mb-16 flex items-center shadow-md rounded-lg p-4">
+                <div class="flex items-center shadow-md rounded-lg p-4">
                     <div class="w-full flex-1 mr-2">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                             Meal Name
