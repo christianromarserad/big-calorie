@@ -132,7 +132,6 @@ export function deleteMealActionCreator(day, index) {
 }
 
 export function deleteFoodActionCreator(day, mealIndex, foodIndex) {
-    console.log("day: " + day + " mealIndex: " + mealIndex + " foodINdex: " + foodIndex);
     return {
         type: deleteFoodType,
         day: day,

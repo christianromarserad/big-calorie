@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { motion, AnimatePresence } from "framer-motion"
-import Div100vh from 'react-div-100vh';
 import MealPlanItemList from './MealPlan/MealPlanItemList';
 import UserSideBar from './User/UserSideBar';
 import Navbar from './Navbar';

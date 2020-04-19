@@ -51,6 +51,7 @@ const FoodAddSearch = ({ day, mealIndex, addFoodActionCreator }) => {
                         {
                             searchItems.map(({ food_name, serving_qty, serving_unit, photo }) => (
                                 <button
+                                    key={food_name}
                                     class="block w-full hover:bg-gray-200 font-bold py-2 px-4 border flex items-center"
                                     onMouseDown={addFoodActionCreator.bind(this, day, mealIndex, food_name)}>
 

@@ -21,7 +21,7 @@ const DeletePrompt = ({ isDeletePromptOpen, closeDeletePrompt, deleteItem, itemN
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                         <path d="M2.93 17.07A10 10 0 1117.07 2.93 10 10 0 012.93 17.07zM9 5v6h2V5H9zm0 8v2h2v-2H9z" />
                     </svg>
-                    <p class="text-sm ml-4">Are you sure you want to delete this?</p>
+                    <span class="text-sm ml-4">Are you sure you want to delete this?</span>
                 </p >
                 <p class="flex-1 flex justify-center items-center text-sm font-bold text-gray-700">{itemName}</p>
                 <div class="flex justify-end p-2 border-t">
