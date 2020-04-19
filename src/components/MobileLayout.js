@@ -55,7 +55,7 @@ function MobileLayout({ selectDayActionCreator, dayNames, dayMealPlans, selected
 
 
     return (
-        <div class="flex flex-col h-full">
+        <div class="flex flex-col h-screen">
             <Navbar
                 navOptionsArray={['BMR Calculator', ...dayNames].map((dayName) => ({
                     name: dayName,
@@ -85,9 +85,7 @@ function MobileLayout({ selectDayActionCreator, dayNames, dayMealPlans, selected
                                 animate={{ x: 0 }}
                                 exit={{ x: getExitPosition() }}
                                 transition={{ ease: "easeInOut" }}>
-                                <Div100vh>
-                                    <UserSideBar />
-                                </Div100vh>
+                                <UserSideBar />
                             </motion.div>
                     }
                 </AnimatePresence>
