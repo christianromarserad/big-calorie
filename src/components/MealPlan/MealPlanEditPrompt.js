@@ -35,8 +35,8 @@ function MealPlanEditPrompt({ mealName, foods, updateMealNameActionCreator, addF
                 </div>
 
 
-                <div class="flex items-center shadow-md rounded-lg p-4">
-                    <div class="w-full flex-1 mr-2">
+                <div class="mt-8 mb-16 flex items-center phone:shadow-md phone:rounded-lg phone:p-4">
+                    <div class="w-full flex-1">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                             Meal Name
                                 </label>
