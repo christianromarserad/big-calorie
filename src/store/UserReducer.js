@@ -12,7 +12,7 @@ const initialState = {
 
 export function updateFieldActionCreator(event) {
     return {
-        type: updateFieldActionCreator,
+        type: updateFieldType,
         payload: {
             [event.target.name]: event.target.value
         }
@@ -21,7 +21,7 @@ export function updateFieldActionCreator(event) {
 
 
 export const reducer = (state = initialState, action) => {
-    if (action.type === updateFieldActionCreator) {
+    if (action.type === updateFieldType) {
         return {
             ...state,
             ...action.payload
