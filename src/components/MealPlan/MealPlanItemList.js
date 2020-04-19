@@ -35,7 +35,7 @@ function MealPlanItemList({ meals, selectedDay, deleteMealActionCreator, addMeal
 
                 <motion.button
                     whileHover={{ scale: 1.01 }}
-                    class="bg-white rounded-lg shadow-lg w-full h-full flex flex-1 text-teal-400 hover:text-teal-700 justify-center"
+                    class="bg-white rounded-lg shadow-lg w-full h-full flex text-teal-400 hover:text-teal-700 justify-center items-center"
                     onClick={() => { addMealActionCreator(selectedDay) }}>
                     <svg
                         class="h-24 fill-current"
