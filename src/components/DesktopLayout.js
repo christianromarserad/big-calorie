@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { motion, AnimatePresence } from "framer-motion"
+import Div100vh from 'react-div-100vh';
 import MealPlanItemList from './MealPlan/MealPlanItemList';
 import UserSideBar from './User/UserSideBar';
 import Navbar from './Navbar';
@@ -54,24 +55,24 @@ function DesktopLayout({ selectDayActionCreator, dayNames, dayMealPlans, selecte
 
 
     return (
-        <div class="flex h-full relative w-full">
+        <Div100vh>
+            <div class="flex h-full relative w-full">
+                <div class="w-64">
+                    <UserSideBar />
+                </div>
 
-            <div class="w-64">
-                <UserSideBar />
-            </div>
+                <div class="flex-1 flex flex-col h-full overflow-hidden relative">
+                    <Navbar
+                        navOptionsArray={dayNames.map((dayName) => ({
+                            name: dayName,
+                            isSelected: dayName === selectedDay,
+                            onClick: setNextDay.bind(this, dayName)
+                        }))} />
 
-            <div class="flex-1 flex flex-col h-full overflow-hidden relative">
-                <Navbar
-                    navOptionsArray={dayNames.map((dayName) => ({
-                        name: dayName,
-                        isSelected: dayName === selectedDay,
-                        onClick: setNextDay.bind(this, dayName)
-                    }))} />
-
-                <div class="flex-1 overflow-auto overflow-x-hidden">
-                    <AnimatePresence exitBeforeEnter>
-                        {
-                            dayNames.indexOf(selectedDay) != -1 ?
+                    <div class="flex-1 overflow-auto overflow-x-hidden">
+                        <AnimatePresence exitBeforeEnter>
+                            {
+                                dayNames.indexOf(selectedDay) != -1 &&
                                 <motion.div
                                     key={selectedDay}
                                     initial={{ x: getInitialPosition() }}
@@ -83,20 +84,13 @@ function DesktopLayout({ selectDayActionCreator, dayNames, dayMealPlans, selecte
                                         selectedDay={selectedDay}
                                         deleteMealActionCreator={deleteMealActionCreator}
                                         addMealActionCreator={addMealActionCreator} />
-                                </motion.div> :
-                                <motion.div
-                                    class="h-full"
-                                    initial={{ x: getInitialPosition() }}
-                                    animate={{ x: 0 }}
-                                    exit={{ x: getExitPosition() }}
-                                    transition={{ ease: "easeInOut" }}>
-                                    <UserSideBar />
                                 </motion.div>
-                        }
-                    </AnimatePresence>
+                            }
+                        </AnimatePresence>
+                    </div>
                 </div>
             </div>
-        </div>
+        </Div100vh>
     );
 }
 
