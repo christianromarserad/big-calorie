@@ -1,7 +1,7 @@
 import React from 'react';
 import MealPlanPage from './components/MealPlan/MealPlanPage';
 import UserSideBar from './components/User/UserSideBar';
-import Layout from './components/Layout';
+import Layout from './components/DesktopLayout';
 import Div100vh from 'react-div-100vh';
 
 function App(props) {

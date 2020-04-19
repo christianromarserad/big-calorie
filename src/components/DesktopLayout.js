@@ -4,13 +4,14 @@ import { connect } from 'react-redux';
 import { motion, AnimatePresence } from "framer-motion"
 import MealPlanItemList from './MealPlan/MealPlanItemList';
 import UserSideBar from './User/UserSideBar';
+import Navbar from './Navbar';
 import {
     selectDayActionCreator,
     deleteMealActionCreator,
     addMealActionCreator
 } from '../store/MealPlanReducer';
 
-function Layout({ selectDayActionCreator, dayNames, dayMealPlans, selectedDay, deleteMealActionCreator, addMealActionCreator }) {
+function DesktopLayout({ selectDayActionCreator, dayNames, dayMealPlans, selectedDay, deleteMealActionCreator, addMealActionCreator }) {
     let [nextDay, setNextDay] = useState(null);
     let [isRightDirection, setIsRightDirection] = useState(true);
 
@@ -53,47 +54,19 @@ function Layout({ selectDayActionCreator, dayNames, dayMealPlans, selectedDay, d
 
 
     return (
-        <motion.div
-            class="flex h-full relative w-full"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}>
+        <div class="flex h-full relative w-full">
 
-            <div class="hidden tablet:block w-64">
+            <div class="w-64">
                 <UserSideBar />
             </div>
 
             <div class="flex-1 flex flex-col h-full overflow-hidden relative">
-                <div class="flex justify-center tablet:inline-flex hidden">
-                    <motion.button
-                        class="text-xs uppercase font-bold text-gray-600 hover:bg-teal-300 py-2 px-4 rounded-lg m-2 tablet:hidden"
-                        onClick={setNextDay.bind("user")}>
-                        hahha
-                    </motion.button>
-
-                    {
-                        dayNames.map((day) => {
-                            return (
-                                day === selectedDay ?
-                                    <motion.button
-                                        initial={{ scale: 0 }}
-                                        animate={{ scale: 1 }}
-                                        key={selectedDay}
-                                        class="text-xs uppercase font-bold bg-teal-700 hover:bg-teal-700 text-white py-2 px-4 rounded-lg m-2"
-                                        onClick={setNextDay.bind(this, day)}>
-                                        {day}
-                                    </motion.button> :
-                                    <motion.button
-                                        class="text-xs uppercase font-bold text-gray-600 hover:bg-teal-300 py-2 px-4 rounded-lg m-2"
-                                        onClick={setNextDay.bind(this, day)}
-                                        whileHover={{ scale: 1.06 }}>
-                                        {day}
-                                    </motion.button>
-                            )
-                        })
-                    }
-                </div>
+                <Navbar
+                    navOptionsArray={dayNames.map((dayName) => ({
+                        name: dayName,
+                        isSelected: dayName === selectedDay,
+                        onClick: setNextDay.bind(this, dayName)
+                    }))} />
 
                 <div class="flex-1 overflow-auto overflow-x-hidden">
                     <AnimatePresence exitBeforeEnter>
@@ -123,7 +96,7 @@ function Layout({ selectDayActionCreator, dayNames, dayMealPlans, selectedDay, d
                     </AnimatePresence>
                 </div>
             </div>
-        </motion.div >
+        </div>
     );
 }
 
@@ -143,4 +116,4 @@ function mapDispatchToProps(dispatch) {
     }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Layout);
+export default connect(mapStateToProps, mapDispatchToProps)(DesktopLayout);
