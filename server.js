@@ -1,6 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 const path = require('path');
+const cors = require('cors');
 
 //Configure axios
 axios.defaults.baseURL = 'https://trackapi.nutritionix.com';
@@ -13,8 +14,12 @@ const port = process.env.PORT;
 
 //Adding middleware
 app.use(express.json());
+var corsOption = {
+    origin: true
+}
 
-app.get('/api/searchFoods/:query', (req, res) => {
+
+app.get('/api/searchFoods/:query', cors(corsOption), (req, res) => {
     console.log(req.params.query);
     axios.get('/v2/search/instant', {
         params: {
@@ -25,7 +30,7 @@ app.get('/api/searchFoods/:query', (req, res) => {
     });
 });
 
-app.get('/api/getFood/:query', (req, res) => {
+app.get('/api/getFood/:query', cors(corsOption), (req, res) => {
     axios.post('/v2/natural/nutrients', {
         query: req.params.query,
         timezone: 'US/Eastern'
