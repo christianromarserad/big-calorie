@@ -1,0 +1,29 @@
+{
+  "name": "big-calorie",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client": "npm start --prefix client",
+    "server": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christianromarserad/big-calorie.git"
+  },
+  "author": "Christian Serad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/christianromarserad/big-calorie/issues"
+  },
+  "homepage": "https://github.com/christianromarserad/big-calorie#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0"
+  }
+}
