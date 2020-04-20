@@ -1,5 +1,6 @@
 const express = require('express');
 const axios = require('axios');
+const path = require('path');
 
 //Configure axios
 axios.defaults.baseURL = 'https://trackapi.nutritionix.com';
@@ -8,7 +9,7 @@ axios.defaults.headers.common['x-app-key'] = process.env.BIG_CALORIE_NUTRITIONIX
 axios.defaults.headers.common['x-remote-user-id'] = 0
 
 const app = express();
-const port = 5000; //TODO move this to .env
+const port = process.env.PORT;
 
 //Adding middleware
 app.use(express.json());
@@ -44,8 +45,12 @@ app.get('/api/getFood/:query', (req, res) => {
     });
 });
 
-console.log("API KEY: " + process.env.BIG_CALORIE_NUTRITIONIX_API_KEY);
-console.log("API ID: " + process.env.BIG_CALORIE_NUTRITIONIX_API_ID);
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, 'client/build')));
 
+    app.get('*', function (req, res) {
+        res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+    });
+}
 
 app.listen(port, () => console.log("Listening on port: " + port));
