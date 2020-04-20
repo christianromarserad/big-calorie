@@ -1,49 +1,32 @@
 {
   "name": "big-calorie",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "axios": "^0.19.2",
-    "framer-motion": "^1.10.3",
-    "react": "^16.13.1",
-    "react-device-detect": "^1.11.14",
-    "react-div-100vh": "^0.3.8",
-    "react-dom": "^16.13.1",
-    "react-modal": "^3.11.2",
-    "react-redux": "^7.2.0",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1",
-    "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
-  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "npm run build:css && react-scripts start",
-    "build": "npm run build:css && react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "build:css": "postcss src/styles/tailwind.css -o src/styles/main.css"
+    "start": "node server.js",
+    "client": "npm start --prefix client",
+    "server": "nodemon -r dotenv/config server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christianromarserad/big-calorie.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "author": "Christian Serad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/christianromarserad/big-calorie/issues"
+  },
+  "homepage": "https://github.com/christianromarserad/big-calorie#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1"
   },
   "devDependencies": {
-    "autoprefixer": "^9.7.6",
-    "postcss-cli": "^7.1.0",
-    "tailwindcss": "^1.2.0"
+    "concurrently": "^5.1.0",
+    "dotenv": "^8.2.0"
   }
 }
