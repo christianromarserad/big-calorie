@@ -64,21 +64,11 @@ const initialState = {
 
 export function addFoodActionCreator(day, index, foodName) {
     return (dispatch, getState) => {
-        axios.post('/v2/natural/nutrients', {
-            query: foodName,
-            timezone: "US/Eastern"
-        }).then((res) => {
-            let resultFood = res.data.foods[0];
+        axios.get('/api/getFood/' + foodName).then((res) => {
             let food = {
-                foodName: resultFood.food_name,
-                serving: resultFood.serving_qty + " " + resultFood.serving_unit,
-                calorie: resultFood.nf_calories,
-                carb: resultFood.nf_total_carbohydrate,
-                protein: resultFood.nf_protein,
-                fat: resultFood.nf_total_fat,
-                photo: resultFood.photo.thumb,
+                ...res.data,
                 dateCreated: Date.now().toString()
-            }
+            };
 
             dispatch({
                 type: addFoodType,

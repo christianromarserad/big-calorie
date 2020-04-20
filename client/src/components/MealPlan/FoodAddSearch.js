@@ -19,14 +19,8 @@ const FoodAddSearch = ({ day, mealIndex, addFoodActionCreator }) => {
     }
 
     const getSearchItems = (searchKeyWord) => {
-        axios.get('/v2/search/instant',
-            {
-                params: {
-                    query: searchKeyWord
-                }
-            }
-        ).then((res) => {
-            setSearchItems(res.data.common);
+        axios.get('/api/searchFoods/' + searchKeyWord).then((res) => {
+            setSearchItems(res.data);
         });
     }
 

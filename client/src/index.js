@@ -6,10 +6,8 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from "react-router-dom";
 import configureStore from './configuration/ConfigureStore';
-import configureAxios from './configuration/ConfigureAxios';
 
 const store = configureStore(); //Set up redux store
-configureAxios();               //Set up axios with api key
 window.store = store;           //For debugging purposes
 
 ReactDOM.render(
