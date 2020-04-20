@@ -3,8 +3,8 @@ const axios = require('axios');
 
 //Configure axios
 axios.defaults.baseURL = 'https://trackapi.nutritionix.com';
-axios.defaults.headers.common['x-app-id'] = "a8dfba4b";
-axios.defaults.headers.common['x-app-key'] = "78c52c7f2aee4ef0ad4358ac16b84f70";
+axios.defaults.headers.common['x-app-id'] = process.env.BIG_CALORIE_NUTRITIONIX_API_ID;
+axios.defaults.headers.common['x-app-key'] = process.env.BIG_CALORIE_NUTRITIONIX_API_KEY;
 axios.defaults.headers.common['x-remote-user-id'] = 0
 
 const app = express();
@@ -43,5 +43,9 @@ app.get('/api/getFood/:query', (req, res) => {
         res.send(food);
     });
 });
+
+console.log("API KEY: " + process.env.BIG_CALORIE_NUTRITIONIX_API_KEY);
+console.log("API ID: " + process.env.BIG_CALORIE_NUTRITIONIX_API_ID);
+
 
 app.listen(port, () => console.log("Listening on port: " + port));
