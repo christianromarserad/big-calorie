@@ -15,7 +15,7 @@ const port = process.env.PORT;
 //Adding middleware
 app.use(express.json());
 var corsOption = {
-    origin: true
+    origin: false
 }
 
 
