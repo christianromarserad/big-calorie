@@ -103,9 +103,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        selectDayActionCreator: selectDayActionCreator,
-        deleteMealActionCreator: deleteMealActionCreator,
-        addMealActionCreator: addMealActionCreator
+        selectDayActionCreator,
+        deleteMealActionCreator,
+        addMealActionCreator
     }, dispatch);
 }
 

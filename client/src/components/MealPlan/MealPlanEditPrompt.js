@@ -91,9 +91,9 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        updateMealNameActionCreator: updateMealNameActionCreator,
-        addFoodActionCreator: addFoodActionCreator,
-        deleteFoodActionCreator: deleteFoodActionCreator
+        updateMealNameActionCreator,
+        addFoodActionCreator,
+        deleteFoodActionCreator
     }, dispatch);
 }
 
