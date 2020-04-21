@@ -4,6 +4,13 @@
 A web application for making meal plans with calorie tracking and BMR calculator
 
 ## Getting Started:
+Set up environment variables (Create .env file on root folder. Look env.example for reference):
+
+```
+BIG_CALORIE_NUTRITIONIX_API_KEY="your nutritionix api key" 
+BIG_CALORIE_NUTRITIONIX_API_ID="your nutritionix api id"
+PORT=5000
+```
 
 Install all dependency:
 
@@ -24,5 +31,6 @@ Running project (dev mode):
 
 [express](https://expressjs.com/en/starter/installing.html)
 
+[Nutritionix API](https://developer.nutritionix.com/)
 
 
