@@ -1,5 +1,5 @@
 {
-  "name": "big-calorie",
+  "name": "big-calorie-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
