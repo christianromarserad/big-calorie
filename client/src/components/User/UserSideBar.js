@@ -9,7 +9,7 @@ import UserComputation from './UserComputation';
 
 function UserSideBar({ name, age, height, weight, gender, selectedDay, updateFieldActionCreator, days }) {
     return (
-        <div class="bg-white h-full shadow-lg py-4 px-4 flex flex-col">
+        <div class="bg-white h-full shadow-lg py-4 px-4 flex flex-col overflow-auto">
             <img src={appLogo} class="object-contain h-12 w-full" />
             <UserForm
                 name={name}
