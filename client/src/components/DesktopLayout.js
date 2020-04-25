@@ -55,8 +55,8 @@ function DesktopLayout({ selectDayActionCreator, dayNames, dayMealPlans, selecte
 
 
     return (
-        <Div100vh>
-            <div class="flex h-full relative w-full">
+        <div class="flex h-screen overflow-hidden">
+            <div class="flex h-full relative w-full" >
                 <div class="w-64">
                     <UserSideBar />
                 </div>
@@ -89,8 +89,8 @@ function DesktopLayout({ selectDayActionCreator, dayNames, dayMealPlans, selecte
                         </AnimatePresence>
                     </div>
                 </div>
-            </div>
-        </Div100vh>
+            </div >
+        </div>
     );
 }
 
