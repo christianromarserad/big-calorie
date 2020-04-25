@@ -1,26 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
+import FoodAddSearhResult from './FoodAddSearchResult';
 
 const FoodAddSearch = ({ day, mealIndex, addFoodActionCreator }) => {
     let [searchKeyWord, setSearchKeyWord] = useState('');
     let [timer, setTimer] = useState(null);
     let [searchItems, setSearchItems] = useState([]);
+    let [isLoading, setisLoading] = useState(true);
 
-    const searchOnFocusOut = () => {
-        setSearchItems([]);
-        setSearchKeyWord('');
-    }
 
-    const searchOnChange = (event) => {
-        setSearchKeyWord(event.target.value);
+    useEffect(() => {
         clearTimeout(timer);
-        setTimer(setTimeout(getSearchItems.bind(this, event.target.value), 500));
-    }
+        setisLoading(true);
+        setSearchItems([]);
+
+        if (searchKeyWord !== '') {
+            setTimer(setTimeout(getSearchItems.bind(this, searchKeyWord), 500));
+        }
+
+    }, [searchKeyWord])
 
     const getSearchItems = (searchKeyWord) => {
         axios.get('/api/searchFoods/' + searchKeyWord).then((res) => {
             setSearchItems(res.data);
+            setisLoading(false);
         });
     }
 
@@ -31,31 +35,17 @@ const FoodAddSearch = ({ day, mealIndex, addFoodActionCreator }) => {
                 type="text"
                 placeholder="Search"
                 value={searchKeyWord}
-                onBlur={searchOnFocusOut}
-                onChange={searchOnChange} />
+                onBlur={setSearchKeyWord.bind(this, '')}
+                onChange={(event) => { setSearchKeyWord(event.target.value) }} />
 
             <AnimatePresence>
                 {
-                    searchItems.length != 0 &&
-                    <motion.div
-                        class="bg-white rounded-b-md absolute w-full shadow-lg h-64 overflow-y-scroll"
-                        initial={{ height: 0 }}
-                        animate={{ height: 235 }}
-                        exit={{ height: 0 }}>
-                        {
-                            searchItems.map(({ food_name, serving_qty, serving_unit, photo }) => (
-                                <button
-                                    key={food_name}
-                                    class="block w-full hover:bg-gray-200 font-bold py-2 px-4 border flex items-center"
-                                    onMouseDown={addFoodActionCreator.bind(this, day, mealIndex, food_name)}>
-
-                                    <img class="object-contain h-10 w-20" src={photo.thumb} />
-                                    <p class="text-gray-600 flex-1 text-right">{food_name}</p>
-                                    <p class="text-gray-600 flex-1 text-right">{serving_qty} {serving_unit}</p>
-                                </button>
-                            ))
-                        }
-                    </motion.div>
+                    searchKeyWord !== '' && <FoodAddSearhResult
+                        isLoading={isLoading}
+                        searchItems={searchItems}
+                        addFoodActionCreator={addFoodActionCreator}
+                        day={day}
+                        mealIndex={mealIndex} />
                 }
             </AnimatePresence>
 
