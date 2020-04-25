@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
 import LoadingAnimation from '../LoadingAnimation';
@@ -9,19 +9,17 @@ const FoodAddSearch = ({ day, mealIndex, addFoodActionCreator }) => {
     let [searchItems, setSearchItems] = useState([]);
     let [isLoading, setisLoading] = useState(true);
 
-    const searchOnFocusOut = () => {
-        clearTimeout(timer);
-        setSearchItems([]);
-        setSearchKeyWord('');
-        setisLoading(true);
-    }
 
-    const searchOnChange = (event) => {
-        setSearchKeyWord(event.target.value);
+    useEffect(() => {
         clearTimeout(timer);
         setisLoading(true);
-        setTimer(setTimeout(getSearchItems.bind(this, event.target.value), 500));
-    }
+        setSearchItems([]);
+
+        if (searchKeyWord !== '') {
+            setTimer(setTimeout(getSearchItems.bind(this, searchKeyWord), 500));
+        }
+
+    }, [searchKeyWord])
 
     const getSearchItems = (searchKeyWord) => {
         axios.get('/api/searchFoods/' + searchKeyWord).then((res) => {
@@ -37,8 +35,8 @@ const FoodAddSearch = ({ day, mealIndex, addFoodActionCreator }) => {
                 type="text"
                 placeholder="Search"
                 value={searchKeyWord}
-                onBlur={searchOnFocusOut}
-                onChange={searchOnChange} />
+                onBlur={setSearchKeyWord.bind(this, '')}
+                onChange={(event) => { setSearchKeyWord(event.target.value) }} />
 
             <AnimatePresence>
                 {
