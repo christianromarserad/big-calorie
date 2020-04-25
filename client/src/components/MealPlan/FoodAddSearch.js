@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
-import LoadingAnimation from '../LoadingAnimation';
+import FoodAddSearhResult from './FoodAddSearchResult';
 
 const FoodAddSearch = ({ day, mealIndex, addFoodActionCreator }) => {
     let [searchKeyWord, setSearchKeyWord] = useState('');
@@ -40,30 +40,12 @@ const FoodAddSearch = ({ day, mealIndex, addFoodActionCreator }) => {
 
             <AnimatePresence>
                 {
-                    searchKeyWord !== '' &&
-                    <motion.div
-                        class="bg-white rounded-b-md absolute w-full shadow-lg h-64 overflow-y-scroll"
-                        initial={{ height: 0 }}
-                        animate={{ height: 235 }}
-                        exit={{ height: 0 }}>
-                        {
-                            isLoading ?
-                                <div class="flex h-full w-full justify-center items-center">
-                                    <LoadingAnimation />
-                                </div> :
-                                searchItems.map(({ food_name, serving_qty, serving_unit, photo }) => (
-                                    <button
-                                        key={food_name}
-                                        class="block w-full hover:bg-gray-200 font-bold py-2 px-4 border flex items-center"
-                                        onMouseDown={addFoodActionCreator.bind(this, day, mealIndex, food_name)}>
-
-                                        <img class="object-contain h-10 w-20" src={photo.thumb} />
-                                        <p class="text-gray-600 flex-1 text-right">{food_name}</p>
-                                        <p class="text-gray-600 flex-1 text-right">{serving_qty} {serving_unit}</p>
-                                    </button>
-                                ))
-                        }
-                    </motion.div>
+                    searchKeyWord !== '' && <FoodAddSearhResult
+                        isLoading={isLoading}
+                        searchItems={searchItems}
+                        addFoodActionCreator={addFoodActionCreator}
+                        day={day}
+                        mealIndex={mealIndex} />
                 }
             </AnimatePresence>
 
